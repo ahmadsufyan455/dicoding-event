@@ -17,17 +17,18 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$FinishedEvent {
+  int? get limit => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
+    required TResult Function(int? limit) started,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
+    TResult? Function(int? limit)? started,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function(int? limit)? started,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -43,6 +44,12 @@ mixin _$FinishedEvent {
     TResult Function(_Started value)? started,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
+
+  /// Create a copy of FinishedEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $FinishedEventCopyWith<FinishedEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -51,6 +58,8 @@ abstract class $FinishedEventCopyWith<$Res> {
     FinishedEvent value,
     $Res Function(FinishedEvent) then,
   ) = _$FinishedEventCopyWithImpl<$Res, FinishedEvent>;
+  @useResult
+  $Res call({int? limit});
 }
 
 /// @nodoc
@@ -65,14 +74,32 @@ class _$FinishedEventCopyWithImpl<$Res, $Val extends FinishedEvent>
 
   /// Create a copy of FinishedEvent
   /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? limit = freezed}) {
+    return _then(
+      _value.copyWith(
+            limit:
+                freezed == limit
+                    ? _value.limit
+                    : limit // ignore: cast_nullable_to_non_nullable
+                        as int?,
+          )
+          as $Val,
+    );
+  }
 }
 
 /// @nodoc
-abstract class _$$StartedImplCopyWith<$Res> {
+abstract class _$$StartedImplCopyWith<$Res>
+    implements $FinishedEventCopyWith<$Res> {
   factory _$$StartedImplCopyWith(
     _$StartedImpl value,
     $Res Function(_$StartedImpl) then,
   ) = __$$StartedImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({int? limit});
 }
 
 /// @nodoc
@@ -86,47 +113,77 @@ class __$$StartedImplCopyWithImpl<$Res>
 
   /// Create a copy of FinishedEvent
   /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? limit = freezed}) {
+    return _then(
+      _$StartedImpl(
+        limit:
+            freezed == limit
+                ? _value.limit
+                : limit // ignore: cast_nullable_to_non_nullable
+                    as int?,
+      ),
+    );
+  }
 }
 
 /// @nodoc
 
 class _$StartedImpl implements _Started {
-  const _$StartedImpl();
+  const _$StartedImpl({this.limit});
+
+  @override
+  final int? limit;
 
   @override
   String toString() {
-    return 'FinishedEvent.started()';
+    return 'FinishedEvent.started(limit: $limit)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$StartedImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$StartedImpl &&
+            (identical(other.limit, limit) || other.limit == limit));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, limit);
+
+  /// Create a copy of FinishedEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$StartedImplCopyWith<_$StartedImpl> get copyWith =>
+      __$$StartedImplCopyWithImpl<_$StartedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>({required TResult Function() started}) {
-    return started();
+  TResult when<TResult extends Object?>({
+    required TResult Function(int? limit) started,
+  }) {
+    return started(limit);
   }
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({TResult? Function()? started}) {
-    return started?.call();
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int? limit)? started,
+  }) {
+    return started?.call(limit);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
+    TResult Function(int? limit)? started,
     required TResult orElse(),
   }) {
     if (started != null) {
-      return started();
+      return started(limit);
     }
     return orElse();
   }
@@ -161,7 +218,17 @@ class _$StartedImpl implements _Started {
 }
 
 abstract class _Started implements FinishedEvent {
-  const factory _Started() = _$StartedImpl;
+  const factory _Started({final int? limit}) = _$StartedImpl;
+
+  @override
+  int? get limit;
+
+  /// Create a copy of FinishedEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$StartedImplCopyWith<_$StartedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

@@ -1,14 +1,35 @@
+import 'package:dicoding_event/presentation/favorite/favorite_screen.dart';
+import 'package:dicoding_event/presentation/finished/finished_screen.dart';
+import 'package:dicoding_event/presentation/home/home_screen.dart';
+import 'package:dicoding_event/presentation/upcoming/upcoming_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
-class DashboardScreen extends StatelessWidget {
-  final StatefulNavigationShell navigationShell;
-  const DashboardScreen({super.key, required this.navigationShell});
+class DashboardScreen extends StatefulWidget {
+  const DashboardScreen({super.key});
+
+  @override
+  State<DashboardScreen> createState() => _DashboardScreenState();
+}
+
+class _DashboardScreenState extends State<DashboardScreen> {
+  int _selectedIndex = 0;
+  final pages = [
+    const HomeScreen(),
+    const UpcomingScreen(),
+    const FinishedScreen(),
+    const FavoriteScreen(),
+  ];
+
+  void _onTabTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: navigationShell,
+      body: pages[_selectedIndex],
       bottomNavigationBar: NavigationBar(
         destinations: [
           const NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
@@ -25,8 +46,8 @@ class DashboardScreen extends StatelessWidget {
             label: 'Favorite',
           ),
         ],
-        selectedIndex: navigationShell.currentIndex,
-        onDestinationSelected: (index) => navigationShell.goBranch(index),
+        selectedIndex: _selectedIndex,
+        onDestinationSelected: (index) => _onTabTapped(index),
       ),
     );
   }

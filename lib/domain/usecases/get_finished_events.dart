@@ -7,7 +7,7 @@ class GetFinishedEvents {
   final EventRepository eventRepository;
   GetFinishedEvents(this.eventRepository);
 
-  Future<Either<Failure, List<EventEntity>>> invoke() async {
-    return await eventRepository.getEvents(0);
+  Future<Either<Failure, List<EventEntity>>> invoke({int? limit}) async {
+    return await eventRepository.getEvents(0, limit: limit);
   }
 }

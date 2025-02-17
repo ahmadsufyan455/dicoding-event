@@ -8,50 +8,32 @@ import 'package:dicoding_event/presentation/upcoming/upcoming_screen.dart';
 import 'package:go_router/go_router.dart';
 
 final router = GoRouter(
-  initialLocation: '/home',
+  initialLocation: '/dashboard',
   routes: [
-    StatefulShellRoute.indexedStack(
-      builder: (context, state, navigationShell) {
-        return DashboardScreen(navigationShell: navigationShell);
-      },
-      branches: [
-        StatefulShellBranch(
-          routes: [
-            GoRoute(
-              name: AppRoutes.home,
-              path: '/home',
-              builder: (context, state) => const HomeScreen(),
-            ),
-          ],
-        ),
-        StatefulShellBranch(
-          routes: [
-            GoRoute(
-              name: AppRoutes.upcoming,
-              path: '/upcoming',
-              builder: (context, state) => const UpcomingScreen(),
-            ),
-          ],
-        ),
-        StatefulShellBranch(
-          routes: [
-            GoRoute(
-              name: AppRoutes.finished,
-              path: '/finished',
-              builder: (context, state) => const FinishedScreen(),
-            ),
-          ],
-        ),
-        StatefulShellBranch(
-          routes: [
-            GoRoute(
-              name: AppRoutes.favorite,
-              path: '/favorite',
-              builder: (context, state) => const FavoriteScreen(),
-            ),
-          ],
-        ),
-      ],
+    GoRoute(
+      name: AppRoutes.dashboard,
+      path: '/dashboard',
+      builder: (context, state) => const DashboardScreen(),
+    ),
+    GoRoute(
+      name: AppRoutes.home,
+      path: '/home',
+      builder: (context, state) => const HomeScreen(),
+    ),
+    GoRoute(
+      name: AppRoutes.upcoming,
+      path: '/upcoming',
+      builder: (context, state) => const UpcomingScreen(),
+    ),
+    GoRoute(
+      name: AppRoutes.finished,
+      path: '/finished',
+      builder: (context, state) => const FinishedScreen(),
+    ),
+    GoRoute(
+      name: AppRoutes.favorite,
+      path: '/favorite',
+      builder: (context, state) => const FavoriteScreen(),
     ),
     GoRoute(
       name: AppRoutes.detail,

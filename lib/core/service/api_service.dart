@@ -9,5 +9,8 @@ abstract interface class ApiService {
   factory ApiService(Dio dio, {String? baseUrl}) = _ApiService;
 
   @GET('events')
-  Future<EventResponse> getEvents({@Query('active') int active = 0});
+  Future<EventResponse> getEvents({
+    @Query('active') int active = 0,
+    @Query('limit') int? limit = 40,
+  });
 }

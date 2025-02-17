@@ -20,9 +20,13 @@ class _ApiService implements ApiService {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<EventResponse> getEvents({int active = 0}) async {
+  Future<EventResponse> getEvents({int active = 0, int? limit = 40}) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'active': active};
+    final queryParameters = <String, dynamic>{
+      r'active': active,
+      r'limit': limit,
+    };
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _options = _setStreamType<EventResponse>(

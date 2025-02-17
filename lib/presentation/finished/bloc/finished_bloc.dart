@@ -14,7 +14,7 @@ class FinishedBloc extends Bloc<FinishedEvent, FinishedState> {
       super(const _Initial()) {
     on<_Started>((event, emit) async {
       emit(const _Loading());
-      final result = await _getFinishedEvents.invoke();
+      final result = await _getFinishedEvents.invoke(limit: event.limit);
       result.fold(
         (failure) => emit(_Error(failure.message)),
         (events) => emit(_Success(events)),
