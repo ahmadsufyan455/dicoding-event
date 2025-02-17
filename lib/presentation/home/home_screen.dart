@@ -21,7 +21,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.amber,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -40,6 +39,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     error: (message) => Text(message),
                   );
                 },
+              ),
+              const SpaceHeight(16),
+              const Text(
+                'Finished Event',
+                style: TextStyle(fontWeight: FontWeight.bold),
               ),
             ],
           ),
