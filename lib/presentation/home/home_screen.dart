@@ -53,7 +53,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     return state.when(
                       initial: () => const SizedBox(),
                       loading: () => const CircularProgressIndicator(),
-                      success: (events) => EventList(events: events),
+                      success:
+                          (events) => EventList(
+                            events: events,
+                            physics: const NeverScrollableScrollPhysics(),
+                          ),
                       error: (message) => Text(message),
                     );
                   },

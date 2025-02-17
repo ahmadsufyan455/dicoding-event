@@ -1,4 +1,5 @@
 import 'package:dicoding_event/presentation/finished/bloc/finished_bloc.dart';
+import 'package:dicoding_event/presentation/widgets/event_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -26,12 +27,9 @@ class _FinishedScreenState extends State<FinishedScreen> {
               initial: () => const SizedBox(),
               loading: () => const Center(child: CircularProgressIndicator()),
               success: (events) {
-                return ListView.builder(
-                  itemCount: events.length,
-                  itemBuilder: (context, index) {
-                    final data = events[index];
-                    return Text(data.name);
-                  },
+                return EventList(
+                  events: events,
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
                 );
               },
               error: (message) => Center(child: Text(message)),

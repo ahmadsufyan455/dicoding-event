@@ -6,15 +6,24 @@ import 'package:flutter/material.dart';
 
 class EventList extends StatelessWidget {
   final List<EventEntity> events;
-  const EventList({super.key, required this.events});
+  final ScrollPhysics? physics;
+  final EdgeInsetsGeometry? padding;
+  const EventList({
+    super.key,
+    required this.events,
+    this.physics,
+    this.padding,
+  });
 
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
       shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
+      physics: physics,
       itemCount: events.length,
-      itemBuilder: (context, index) => EvenListItem(event: events[index]),
+      itemBuilder: (context, index) {
+        return EvenListItem(event: events[index], padding: padding);
+      },
       separatorBuilder: (context, index) => const SpaceHeight(10),
     );
   }
@@ -22,51 +31,59 @@ class EventList extends StatelessWidget {
 
 class EvenListItem extends StatelessWidget {
   final EventEntity event;
-  const EvenListItem({super.key, required this.event});
+  final EdgeInsetsGeometry? padding;
+  const EvenListItem({super.key, required this.event, this.padding});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.only(right: 10),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: Theme.of(context).colorScheme.surface,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withValues(alpha: 0.1), // Soft shadow
-            blurRadius: 6,
-            offset: const Offset(2, 4),
-          ),
-        ],
-      ),
-      child: Row(
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(10),
-            child: CachedNetworkImage(
-              imageUrl: event.imageLogo,
-              width: 120,
-              placeholder:
-                  (context, url) =>
-                      Image.asset(Assets.images.placeholder.keyName),
+    return Padding(
+      padding: padding ?? EdgeInsets.zero,
+      child: Container(
+        padding: const EdgeInsets.only(right: 10),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: Theme.of(context).colorScheme.surface,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withValues(alpha: 0.1), // Soft shadow
+              blurRadius: 6,
+              offset: const Offset(2, 4),
             ),
-          ),
-          const SpaceWidth(16),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(event.name, maxLines: 2, overflow: TextOverflow.ellipsis),
-                const SpaceHeight(8),
-                Text(
-                  event.ownerName,
-                  style: const TextStyle(fontSize: 12),
-                  overflow: TextOverflow.ellipsis,
-                ),
-              ],
+          ],
+        ),
+        child: Row(
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: CachedNetworkImage(
+                imageUrl: event.imageLogo,
+                width: 120,
+                placeholder:
+                    (context, url) =>
+                        Image.asset(Assets.images.placeholder.keyName),
+              ),
             ),
-          ),
-        ],
+            const SpaceWidth(16),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    event.name,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  const SpaceHeight(8),
+                  Text(
+                    event.ownerName,
+                    style: const TextStyle(fontSize: 12),
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

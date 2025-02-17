@@ -25,13 +25,14 @@ class _UpcomingScreenState extends State<UpcomingScreen> {
             return state.when(
               initial: () => const SizedBox(),
               loading: () => const Center(child: CircularProgressIndicator()),
-              success:
-                  (events) => ListView.builder(
-                    itemCount: events.length,
-                    itemBuilder: (context, index) {
-                      return const Text('');
-                    },
-                  ),
+              success: (events) {
+                return ListView.builder(
+                  itemCount: events.length,
+                  itemBuilder: (context, index) {
+                    return const Text('');
+                  },
+                );
+              },
               empty: () => const Center(child: Text('Empty Data')),
               error: (message) => Center(child: Text(message)),
             );

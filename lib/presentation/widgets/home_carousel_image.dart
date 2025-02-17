@@ -35,11 +35,12 @@ class ImageView extends StatelessWidget {
       borderRadius: BorderRadius.circular(12),
       child: CachedNetworkImage(
         imageUrl: imageUrl,
-        placeholder:
-            (context, url) => Image.asset(
-              Assets.images.placeholder.keyName,
-              fit: BoxFit.cover,
-            ),
+        placeholder: (context, url) {
+          return Image.asset(
+            Assets.images.placeholder.keyName,
+            fit: BoxFit.cover,
+          );
+        },
         fit: BoxFit.cover,
         width: context.deviceWidth,
       ),
