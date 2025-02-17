@@ -1,4 +1,6 @@
 import 'package:dicoding_event/presentation/upcoming/bloc/upcoming_bloc.dart';
+import 'package:dicoding_event/presentation/widgets/empty_data.dart';
+import 'package:dicoding_event/presentation/widgets/event_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -26,14 +28,16 @@ class _UpcomingScreenState extends State<UpcomingScreen> {
               initial: () => const SizedBox(),
               loading: () => const Center(child: CircularProgressIndicator()),
               success: (events) {
-                return ListView.builder(
-                  itemCount: events.length,
-                  itemBuilder: (context, index) {
-                    return const Text('');
-                  },
+                return EventList(
+                  events: events,
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
                 );
               },
-              empty: () => const Center(child: Text('Empty Data')),
+              empty: () {
+                return const EmptyData(
+                  message: 'There are no upcoming events yet!',
+                );
+              },
               error: (message) => Center(child: Text(message)),
             );
           },

@@ -7,7 +7,7 @@ class GetUpcomingEvents {
   final EventRepository eventRepository;
   GetUpcomingEvents(this.eventRepository);
 
-  Future<Either<Failure, List<EventEntity>>> invoke() async {
-    return await eventRepository.getEvents(1);
+  Future<Either<Failure, List<EventEntity>>> invoke({int? limit}) async {
+    return await eventRepository.getEvents(1, limit: limit);
   }
 }
