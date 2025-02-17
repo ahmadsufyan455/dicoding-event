@@ -1,6 +1,9 @@
 import 'package:dicoding_event/presentation/finished/bloc/finished_bloc.dart';
+import 'package:dicoding_event/presentation/upcoming/bloc/upcoming_bloc.dart';
 import 'package:dicoding_event/presentation/widgets/event_list.dart';
 import 'package:dicoding_event/presentation/widgets/home_carousel_image.dart';
+import 'package:dicoding_event/presentation/widgets/shimmer/carousel_event_loading.dart';
+import 'package:dicoding_event/presentation/widgets/shimmer/list_event_loading.dart';
 import 'package:dicoding_event/presentation/widgets/spaces.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -32,12 +35,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 const Text('Dicoding Event', style: TextStyle(fontSize: 18)),
                 const Text('Recommendation event for you!'),
                 const SpaceHeight(16),
-                BlocBuilder<FinishedBloc, FinishedState>(
+                BlocBuilder<UpcomingBloc, UpcomingState>(
                   builder: (context, state) {
                     return state.when(
                       initial: () => const SizedBox(),
-                      loading: () => const CircularProgressIndicator(),
+                      loading: () => const CarouselEventLoading(),
                       success: (events) => HomeCarouselImage(events: events),
+                      empty: () => const SizedBox(),
                       error: (message) => Text(message),
                     );
                   },
@@ -52,12 +56,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   builder: (context, state) {
                     return state.when(
                       initial: () => const SizedBox(),
-                      loading: () => const CircularProgressIndicator(),
-                      success:
-                          (events) => EventList(
-                            events: events,
-                            physics: const NeverScrollableScrollPhysics(),
-                          ),
+                      loading: () => const ListEventLoading(),
+                      success: (events) {
+                        return EventList(
+                          events: events,
+                          physics: const NeverScrollableScrollPhysics(),
+                        );
+                      },
                       error: (message) => Text(message),
                     );
                   },
