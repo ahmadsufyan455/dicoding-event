@@ -9,9 +9,9 @@ class EventRepositoryImpl implements EventRepository {
   EventRepositoryImpl(this.apiService);
 
   @override
-  Future<Either<Failure, List<EventEntity>>> getFinishedEvents() async {
+  Future<Either<Failure, List<EventEntity>>> getEvents(int active) async {
     try {
-      final result = await apiService.getFinishedEvents();
+      final result = await apiService.getEvents(active: active);
       return right(result.listEvents);
     } catch (e) {
       return left(Failure(e.toString()));

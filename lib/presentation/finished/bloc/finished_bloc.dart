@@ -12,7 +12,7 @@ class FinishedBloc extends Bloc<FinishedEvent, FinishedState> {
   FinishedBloc({required GetFinishedEvents getFinishedEvents})
     : _getFinishedEvents = getFinishedEvents,
       super(const _Initial()) {
-    on<FinishedEvent>((event, emit) async {
+    on<_Started>((event, emit) async {
       emit(const _Loading());
       final result = await _getFinishedEvents.invoke();
       result.fold(

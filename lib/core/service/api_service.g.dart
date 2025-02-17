@@ -20,7 +20,7 @@ class _ApiService implements ApiService {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<EventResponse> getFinishedEvents({int active = 0}) async {
+  Future<EventResponse> getEvents({int active = 0}) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'active': active};
     final _headers = <String, dynamic>{};

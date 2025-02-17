@@ -3,11 +3,11 @@ import 'package:dicoding_event/domain/entities/event_entity.dart';
 import 'package:dicoding_event/domain/repositories/event_repository.dart';
 import 'package:fpdart/fpdart.dart';
 
-class GetFinishedEvents {
+class GetUpcomingEvents {
   final EventRepository eventRepository;
-  GetFinishedEvents(this.eventRepository);
+  GetUpcomingEvents(this.eventRepository);
 
   Future<Either<Failure, List<EventEntity>>> invoke() async {
-    return await eventRepository.getEvents(0);
+    return await eventRepository.getEvents(1);
   }
 }
