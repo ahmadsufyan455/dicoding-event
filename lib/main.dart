@@ -1,6 +1,7 @@
 import 'package:dicoding_event/core/router/routes.dart';
 import 'package:dicoding_event/core/theme/theme.dart';
 import 'package:dicoding_event/presentation/finished/bloc/finished_bloc.dart';
+import 'package:dicoding_event/presentation/search/bloc/search_bloc.dart';
 import 'package:dicoding_event/presentation/upcoming/bloc/upcoming_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,6 +16,7 @@ void main() async {
       providers: [
         BlocProvider(create: (context) => serviceLocator<FinishedBloc>()),
         BlocProvider(create: (context) => serviceLocator<UpcomingBloc>()),
+        BlocProvider(create: (context) => serviceLocator<SearchBloc>()),
       ],
       child: const DicodingEventApp(),
     ),

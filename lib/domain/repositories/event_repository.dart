@@ -6,5 +6,6 @@ abstract interface class EventRepository {
   Future<Either<Failure, List<EventEntity>>> getEvents(
     int active, {
     int? limit,
+    String? query,
   });
 }

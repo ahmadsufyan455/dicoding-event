@@ -20,11 +20,16 @@ class _ApiService implements ApiService {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<EventResponse> getEvents({int active = 0, int? limit = 40}) async {
+  Future<EventResponse> getEvents({
+    int active = 0,
+    int? limit = 40,
+    String? query = '',
+  }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'active': active,
       r'limit': limit,
+      r'q': query,
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};

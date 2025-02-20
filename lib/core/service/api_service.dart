@@ -12,5 +12,6 @@ abstract interface class ApiService {
   Future<EventResponse> getEvents({
     @Query('active') int active = 0,
     @Query('limit') int? limit = 40,
+    @Query('q') String? query = '',
   });
 }

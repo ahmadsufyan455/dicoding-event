@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 
 class EmptyData extends StatelessWidget {
   final String message;
-  const EmptyData({super.key, required this.message});
+  final String? image;
+  const EmptyData({super.key, required this.message, this.image});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +13,7 @@ class EmptyData extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset(Assets.icons.empty.keyName),
+          Image.asset(image ?? Assets.icons.empty.keyName),
           const SpaceHeight(16),
           Text(message, style: const TextStyle(fontSize: 16)),
         ],

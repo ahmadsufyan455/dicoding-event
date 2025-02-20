@@ -12,9 +12,14 @@ class EventRepositoryImpl implements EventRepository {
   Future<Either<Failure, List<EventEntity>>> getEvents(
     int active, {
     int? limit,
+    String? query,
   }) async {
     try {
-      final result = await apiService.getEvents(active: active, limit: limit);
+      final result = await apiService.getEvents(
+        active: active,
+        limit: limit,
+        query: query,
+      );
       return right(result.listEvents);
     } catch (e) {
       return left(Failure(e.toString()));
