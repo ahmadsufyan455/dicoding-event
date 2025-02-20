@@ -1,3 +1,4 @@
+import 'package:dicoding_event/core/router/app_routes.dart';
 import 'package:dicoding_event/presentation/finished/bloc/finished_bloc.dart';
 import 'package:dicoding_event/presentation/upcoming/bloc/upcoming_bloc.dart';
 import 'package:dicoding_event/presentation/widgets/event_list.dart';
@@ -7,6 +8,7 @@ import 'package:dicoding_event/presentation/widgets/shimmer/list_event_loading.d
 import 'package:dicoding_event/presentation/widgets/spaces.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -32,8 +34,22 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text('Dicoding Event', style: TextStyle(fontSize: 18)),
-                const Text('Recommendation event for you!'),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('Dicoding Event', style: TextStyle(fontSize: 18)),
+                        Text('Recommendation event for you!'),
+                      ],
+                    ),
+                    IconButton(
+                      onPressed: () => context.pushNamed(AppRoutes.search),
+                      icon: const Icon(Icons.search),
+                    ),
+                  ],
+                ),
                 const SpaceHeight(16),
                 BlocBuilder<UpcomingBloc, UpcomingState>(
                   builder: (context, state) {

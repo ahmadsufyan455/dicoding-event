@@ -5,4 +5,5 @@ class AppRoutes {
   static const String finished = 'finished';
   static const String favorite = 'favorite';
   static const String detail = 'detail';
+  static const String search = 'search';
 }

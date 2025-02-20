@@ -4,6 +4,7 @@ import 'package:dicoding_event/presentation/detail/detail_screen.dart';
 import 'package:dicoding_event/presentation/favorite/favorite_screen.dart';
 import 'package:dicoding_event/presentation/finished/finished_screen.dart';
 import 'package:dicoding_event/presentation/home/home_screen.dart';
+import 'package:dicoding_event/presentation/search/search_screen.dart';
 import 'package:dicoding_event/presentation/upcoming/upcoming_screen.dart';
 import 'package:go_router/go_router.dart';
 
@@ -34,6 +35,11 @@ final router = GoRouter(
       name: AppRoutes.favorite,
       path: '/favorite',
       builder: (context, state) => const FavoriteScreen(),
+    ),
+    GoRoute(
+      name: AppRoutes.search,
+      path: '/search',
+      builder: (context, state) => const SearchScreen(),
     ),
     GoRoute(
       name: AppRoutes.detail,
