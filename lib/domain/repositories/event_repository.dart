@@ -8,4 +8,6 @@ abstract interface class EventRepository {
     int? limit,
     String? query,
   });
+
+  Future<Either<Failure, EventEntity>> getDetailEvent(int id);
 }

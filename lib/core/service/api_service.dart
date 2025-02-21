@@ -1,3 +1,4 @@
+import 'package:dicoding_event/data/models/detail_event_response.dart';
 import 'package:dicoding_event/data/models/event_response.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
@@ -14,4 +15,7 @@ abstract interface class ApiService {
     @Query('limit') int? limit = 40,
     @Query('q') String? query = '',
   });
+
+  @GET('events/{id}')
+  Future<DetailEventResponse> getDetailEvent(@Path('id') int id);
 }

@@ -1,9 +1,11 @@
 import 'package:dicoding_event/core/service/api_service.dart';
 import 'package:dicoding_event/data/repositories/event_repository_impl.dart';
 import 'package:dicoding_event/domain/repositories/event_repository.dart';
+import 'package:dicoding_event/domain/usecases/get_detail_event.dart';
 import 'package:dicoding_event/domain/usecases/get_finished_events.dart';
 import 'package:dicoding_event/domain/usecases/get_search_event.dart';
 import 'package:dicoding_event/domain/usecases/get_upcoming_events.dart';
+import 'package:dicoding_event/presentation/detail/bloc/detail_bloc.dart';
 import 'package:dicoding_event/presentation/finished/bloc/finished_bloc.dart';
 import 'package:dicoding_event/presentation/search/bloc/search_bloc.dart';
 import 'package:dicoding_event/presentation/upcoming/bloc/upcoming_bloc.dart';
@@ -17,13 +19,15 @@ Future<void> initDependencies() async {
   serviceLocator
     ..registerFactory(() => FinishedBloc(getFinishedEvents: serviceLocator()))
     ..registerFactory(() => UpcomingBloc(getUpcomingEvents: serviceLocator()))
-    ..registerFactory(() => SearchBloc(getSearchEvent: serviceLocator()));
+    ..registerFactory(() => SearchBloc(getSearchEvent: serviceLocator()))
+    ..registerFactory(() => DetailBloc(getDetailEvent: serviceLocator()));
 
   // usecases
   serviceLocator
     ..registerLazySingleton(() => GetFinishedEvents(serviceLocator()))
     ..registerLazySingleton(() => GetUpcomingEvents(serviceLocator()))
-    ..registerLazySingleton(() => GetSearchEvent(serviceLocator()));
+    ..registerLazySingleton(() => GetSearchEvent(serviceLocator()))
+    ..registerLazySingleton(() => GetDetailEvent(serviceLocator()));
 
   // data
   serviceLocator.registerLazySingleton<EventRepository>(
