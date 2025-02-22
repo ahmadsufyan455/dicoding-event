@@ -28,62 +28,78 @@ class _DetailScreenState extends State<DetailScreen> {
     context.read<DetailBloc>().add(DetailEvent.started(int.parse(widget.id)));
   }
 
+  Future<void> _onRefresh() async {
+    context.read<DetailBloc>().add(DetailEvent.started(int.parse(widget.id)));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: BlocBuilder<DetailBloc, DetailState>(
-          builder: (context, state) {
-            return state.when(
-              initial: () => const SizedBox(),
-              loading: () => const Center(child: CircularProgressIndicator()),
-              success: (event) => _buildSuccessContent(event),
-              error: (message) => ErrorMessage(message: message),
-            );
-          },
+        child: RefreshIndicator(
+          onRefresh: () => _onRefresh(),
+          child: SingleChildScrollView(
+            physics: const AlwaysScrollableScrollPhysics(),
+            child: BlocBuilder<DetailBloc, DetailState>(
+              builder: (context, state) {
+                return state.when(
+                  initial: () => const SizedBox(),
+                  loading:
+                      () => SizedBox(
+                        height: context.deviceHeight,
+                        child: const Center(child: CircularProgressIndicator()),
+                      ),
+                  success: (event) => _buildSuccessContent(event),
+                  error:
+                      (message) => SizedBox(
+                        height: context.deviceHeight,
+                        child: ErrorMessage(message: message),
+                      ),
+                );
+              },
+            ),
+          ),
         ),
       ),
     );
   }
 
   Widget _buildSuccessContent(EventEntity event) {
-    return SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          _buildHeader(event),
-          const SpaceHeight(140),
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _buildCategory(event.category),
-                const SpaceHeight(10),
-                _buildEventTitle(event.name),
-                const SpaceHeight(10),
-                _buildOrganizer(event.ownerName),
-                const SpaceHeight(24),
-                _buildEventStatus(event.endTime),
-                const SpaceHeight(24),
-                _buildSectionTitle('Deskripsi'),
-                const SpaceHeight(16),
-                Html(data: event.description),
-                const SpaceHeight(16),
-                _buildSectionTitle('Jadwal Pelaksanaan'),
-                const SpaceHeight(16),
-                _buildEventSchedule(event),
-                const SpaceHeight(24),
-                _buildSectionTitle('Lokasi'),
-                const SpaceHeight(4),
-                _buildLocation(event.cityName),
-                const SpaceHeight(10),
-                _buildRegistrationLink(event.link),
-              ],
-            ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        _buildHeader(event),
+        const SpaceHeight(140),
+        Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _buildCategory(event.category),
+              const SpaceHeight(10),
+              _buildEventTitle(event.name),
+              const SpaceHeight(10),
+              _buildOrganizer(event.ownerName),
+              const SpaceHeight(24),
+              _buildEventStatus(event.endTime),
+              const SpaceHeight(24),
+              _buildSectionTitle('Deskripsi'),
+              const SpaceHeight(16),
+              Html(data: event.description),
+              const SpaceHeight(16),
+              _buildSectionTitle('Jadwal Pelaksanaan'),
+              const SpaceHeight(16),
+              _buildEventSchedule(event),
+              const SpaceHeight(24),
+              _buildSectionTitle('Lokasi'),
+              const SpaceHeight(4),
+              _buildLocation(event.cityName),
+              const SpaceHeight(10),
+              _buildRegistrationLink(event.link),
+            ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 
