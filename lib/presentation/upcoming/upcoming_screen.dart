@@ -20,34 +20,41 @@ class _UpcomingScreenState extends State<UpcomingScreen> {
     super.initState();
   }
 
+  Future<void> _onRefresh() async {
+    context.read<UpcomingBloc>().add(const UpcomingEvent.started());
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: BlocBuilder<UpcomingBloc, UpcomingState>(
-          builder: (context, state) {
-            return state.when(
-              initial: () => const SizedBox(),
-              loading: () {
-                return const ListEventLoading(
-                  padding: EdgeInsets.all(16),
-                  length: 10,
-                );
-              },
-              success: (events) {
-                return EventList(
-                  events: events,
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                );
-              },
-              empty: () {
-                return const EmptyData(
-                  message: 'There are no upcoming events yet!',
-                );
-              },
-              error: (message) => ErrorMessage(message: message),
-            );
-          },
+        child: RefreshIndicator(
+          onRefresh: () => _onRefresh(),
+          child: BlocBuilder<UpcomingBloc, UpcomingState>(
+            builder: (context, state) {
+              return state.when(
+                initial: () => const SizedBox(),
+                loading: () {
+                  return const ListEventLoading(
+                    padding: EdgeInsets.all(16),
+                    length: 10,
+                  );
+                },
+                success: (events) {
+                  return EventList(
+                    events: events,
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                  );
+                },
+                empty: () {
+                  return const EmptyData(
+                    message: 'There are no upcoming events yet!',
+                  );
+                },
+                error: (message) => ErrorMessage(message: message),
+              );
+            },
+          ),
         ),
       ),
     );

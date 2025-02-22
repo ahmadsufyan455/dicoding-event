@@ -14,7 +14,7 @@ class UpcomingBloc extends Bloc<UpcomingEvent, UpcomingState> {
       super(const _Initial()) {
     on<_Started>((event, emit) async {
       emit(const _Loading());
-      final result = await _getUpcomingEvents.invoke();
+      final result = await _getUpcomingEvents.invoke(limit: event.limit);
       result.fold((failure) => emit(_Error(failure.message)), (events) {
         events.isEmpty ? emit(const _Empty()) : emit(_Success(events));
       });
