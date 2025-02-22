@@ -1,5 +1,6 @@
 import 'package:dicoding_event/presentation/upcoming/bloc/upcoming_bloc.dart';
 import 'package:dicoding_event/presentation/widgets/empty_data.dart';
+import 'package:dicoding_event/presentation/widgets/error_message.dart';
 import 'package:dicoding_event/presentation/widgets/event_list.dart';
 import 'package:dicoding_event/presentation/widgets/shimmer/list_event_loading.dart';
 import 'package:flutter/material.dart';
@@ -44,7 +45,7 @@ class _UpcomingScreenState extends State<UpcomingScreen> {
                   message: 'There are no upcoming events yet!',
                 );
               },
-              error: (message) => Center(child: Text(message)),
+              error: (message) => ErrorMessage(message: message),
             );
           },
         ),

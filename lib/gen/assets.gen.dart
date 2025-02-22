@@ -15,11 +15,15 @@ class $AssetsIconsGen {
   /// File path: assets/icons/empty.png
   AssetGenImage get empty => const AssetGenImage('assets/icons/empty.png');
 
+  /// File path: assets/icons/no_internet.png
+  AssetGenImage get noInternet =>
+      const AssetGenImage('assets/icons/no_internet.png');
+
   /// File path: assets/icons/search.png
   AssetGenImage get search => const AssetGenImage('assets/icons/search.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [empty, search];
+  List<AssetGenImage> get values => [empty, noInternet, search];
 }
 
 class $AssetsImagesGen {

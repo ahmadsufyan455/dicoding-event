@@ -1,6 +1,7 @@
 import 'package:dicoding_event/core/router/app_routes.dart';
 import 'package:dicoding_event/presentation/finished/bloc/finished_bloc.dart';
 import 'package:dicoding_event/presentation/upcoming/bloc/upcoming_bloc.dart';
+import 'package:dicoding_event/presentation/widgets/error_message.dart';
 import 'package:dicoding_event/presentation/widgets/event_list.dart';
 import 'package:dicoding_event/presentation/widgets/home_carousel_image.dart';
 import 'package:dicoding_event/presentation/widgets/shimmer/carousel_event_loading.dart';
@@ -58,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       loading: () => const CarouselEventLoading(),
                       success: (events) => HomeCarouselImage(events: events),
                       empty: () => const SizedBox(),
-                      error: (message) => Text(message),
+                      error: (message) => ErrorMessage(message: message),
                     );
                   },
                 ),
@@ -79,7 +80,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           physics: const NeverScrollableScrollPhysics(),
                         );
                       },
-                      error: (message) => Text(message),
+                      error: (message) => ErrorMessage(message: message),
                     );
                   },
                 ),

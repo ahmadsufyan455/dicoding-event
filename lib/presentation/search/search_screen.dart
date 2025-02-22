@@ -2,6 +2,7 @@ import 'package:dicoding_event/gen/assets.gen.dart';
 import 'package:dicoding_event/presentation/search/bloc/search_bloc.dart';
 import 'package:dicoding_event/presentation/search/widgets/search_input.dart';
 import 'package:dicoding_event/presentation/widgets/empty_data.dart';
+import 'package:dicoding_event/presentation/widgets/error_message.dart';
 import 'package:dicoding_event/presentation/widgets/event_list.dart';
 import 'package:dicoding_event/presentation/widgets/shimmer/list_event_loading.dart';
 import 'package:dicoding_event/presentation/widgets/spaces.dart';
@@ -70,7 +71,7 @@ class _SearchScreenState extends State<SearchScreen> {
                       empty: () {
                         return const EmptyData(message: 'No events found!');
                       },
-                      error: (message) => Center(child: Text(message)),
+                      error: (message) => ErrorMessage(message: message),
                     );
                   },
                 ),
