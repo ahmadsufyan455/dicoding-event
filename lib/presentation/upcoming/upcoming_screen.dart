@@ -1,3 +1,4 @@
+import 'package:dicoding_event/core/extensions/build_context_ext.dart';
 import 'package:dicoding_event/presentation/upcoming/bloc/upcoming_bloc.dart';
 import 'package:dicoding_event/presentation/widgets/empty_data.dart';
 import 'package:dicoding_event/presentation/widgets/error_message.dart';
@@ -30,30 +31,40 @@ class _UpcomingScreenState extends State<UpcomingScreen> {
       body: SafeArea(
         child: RefreshIndicator(
           onRefresh: () => _onRefresh(),
-          child: BlocBuilder<UpcomingBloc, UpcomingState>(
-            builder: (context, state) {
-              return state.when(
-                initial: () => const SizedBox(),
-                loading: () {
-                  return const ListEventLoading(
-                    padding: EdgeInsets.all(16),
-                    length: 10,
-                  );
-                },
-                success: (events) {
-                  return EventList(
-                    events: events,
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
-                  );
-                },
-                empty: () {
-                  return const EmptyData(
-                    message: 'There are no upcoming events yet!',
-                  );
-                },
-                error: (message) => ErrorMessage(message: message),
-              );
-            },
+          child: SingleChildScrollView(
+            physics: const AlwaysScrollableScrollPhysics(),
+            child: BlocBuilder<UpcomingBloc, UpcomingState>(
+              builder: (context, state) {
+                return state.when(
+                  initial: () => const SizedBox(),
+                  loading: () {
+                    return const ListEventLoading(
+                      padding: EdgeInsets.all(16),
+                      length: 10,
+                    );
+                  },
+                  success: (events) {
+                    return EventList(
+                      events: events,
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                    );
+                  },
+                  empty: () {
+                    return SizedBox(
+                      height: context.deviceHeight,
+                      child: const EmptyData(
+                        message: 'There are no upcoming events yet!',
+                      ),
+                    );
+                  },
+                  error:
+                      (message) => SizedBox(
+                        height: context.deviceHeight,
+                        child: ErrorMessage(message: message),
+                      ),
+                );
+              },
+            ),
           ),
         ),
       ),

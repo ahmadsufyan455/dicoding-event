@@ -1,3 +1,4 @@
+import 'package:dicoding_event/core/extensions/build_context_ext.dart';
 import 'package:dicoding_event/core/router/app_routes.dart';
 import 'package:dicoding_event/presentation/finished/bloc/finished_bloc.dart';
 import 'package:dicoding_event/presentation/upcoming/bloc/upcoming_bloc.dart';
@@ -95,7 +96,11 @@ class _HomeScreenState extends State<HomeScreen> {
                             physics: const NeverScrollableScrollPhysics(),
                           );
                         },
-                        error: (message) => ErrorMessage(message: message),
+                        error:
+                            (message) => SizedBox(
+                              height: context.deviceHeight * 0.6,
+                              child: ErrorMessage(message: message),
+                            ),
                       );
                     },
                   ),
