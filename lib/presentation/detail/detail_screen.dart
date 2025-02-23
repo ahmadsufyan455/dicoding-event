@@ -7,6 +7,7 @@ import 'package:dicoding_event/core/helper/get_event_status.dart';
 import 'package:dicoding_event/domain/entities/event_entity.dart';
 import 'package:dicoding_event/presentation/detail/bloc/detail_bloc.dart';
 import 'package:dicoding_event/presentation/widgets/error_message.dart';
+import 'package:dicoding_event/presentation/widgets/shimmer/detail_event_shimmer.dart';
 import 'package:dicoding_event/presentation/widgets/spaces.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -47,7 +48,7 @@ class _DetailScreenState extends State<DetailScreen> {
                   loading:
                       () => SizedBox(
                         height: context.deviceHeight,
-                        child: const Center(child: CircularProgressIndicator()),
+                        child: const DetailEventShimmer(),
                       ),
                   success: (event) => _buildSuccessContent(event),
                   error:
