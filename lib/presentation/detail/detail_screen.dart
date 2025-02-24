@@ -170,9 +170,8 @@ class _DetailScreenState extends State<DetailScreen> {
                 context.read<FavoriteBloc>().add(
                   FavoriteEvent.loadFavoriteStatus(int.parse(widget.id)),
                 );
-                context.showSnackBar(message);
               },
-              failedMessage: (message) => context.showSnackBar(message),
+              failedMessage: (message) => {},
               orElse: () {},
             );
           },

@@ -2,14 +2,17 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dicoding_event/core/router/app_routes.dart';
 import 'package:dicoding_event/domain/entities/event_entity.dart';
 import 'package:dicoding_event/gen/assets.gen.dart';
+import 'package:dicoding_event/presentation/favorite/cubit/list_favorite_cubit.dart';
 import 'package:dicoding_event/presentation/widgets/spaces.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class EventList extends StatelessWidget {
   final List<EventEntity> events;
   final ScrollPhysics? physics;
   final EdgeInsetsGeometry? padding;
+
   const EventList({
     super.key,
     required this.events,
@@ -34,6 +37,7 @@ class EventList extends StatelessWidget {
 class EvenListItem extends StatelessWidget {
   final EventEntity event;
   final EdgeInsetsGeometry? padding;
+
   const EvenListItem({super.key, required this.event, this.padding});
 
   @override
@@ -41,11 +45,14 @@ class EvenListItem extends StatelessWidget {
     return Padding(
       padding: padding ?? EdgeInsets.zero,
       child: GestureDetector(
-        onTap:
-            () => context.pushNamed(
-              AppRoutes.detail,
-              pathParameters: {'id': (event.id).toString()},
-            ),
+        onTap: () async {
+          await context.pushNamed(
+            AppRoutes.detail,
+            pathParameters: {'id': (event.id).toString()},
+          );
+          if (!context.mounted) return;
+          context.read<ListFavoriteCubit>().loadEventFavorites();
+        },
         child: Container(
           padding: const EdgeInsets.only(right: 10),
           decoration: BoxDecoration(

@@ -19,21 +19,18 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$FavoriteEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() loadFavorites,
     required TResult Function(EventEntity data) addToFavorite,
     required TResult Function(int id) removeFromFavorite,
     required TResult Function(int id) loadFavoriteStatus,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? loadFavorites,
     TResult? Function(EventEntity data)? addToFavorite,
     TResult? Function(int id)? removeFromFavorite,
     TResult? Function(int id)? loadFavoriteStatus,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? loadFavorites,
     TResult Function(EventEntity data)? addToFavorite,
     TResult Function(int id)? removeFromFavorite,
     TResult Function(int id)? loadFavoriteStatus,
@@ -41,21 +38,18 @@ mixin _$FavoriteEvent {
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_LoadFavorites value) loadFavorites,
     required TResult Function(_AddToFavorite value) addToFavorite,
     required TResult Function(_RemoveFromFavorite value) removeFromFavorite,
     required TResult Function(_LoadFavoriteStatus value) loadFavoriteStatus,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_LoadFavorites value)? loadFavorites,
     TResult? Function(_AddToFavorite value)? addToFavorite,
     TResult? Function(_RemoveFromFavorite value)? removeFromFavorite,
     TResult? Function(_LoadFavoriteStatus value)? loadFavoriteStatus,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_LoadFavorites value)? loadFavorites,
     TResult Function(_AddToFavorite value)? addToFavorite,
     TResult Function(_RemoveFromFavorite value)? removeFromFavorite,
     TResult Function(_LoadFavoriteStatus value)? loadFavoriteStatus,
@@ -83,125 +77,6 @@ class _$FavoriteEventCopyWithImpl<$Res, $Val extends FavoriteEvent>
 
   /// Create a copy of FavoriteEvent
   /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-abstract class _$$LoadFavoritesImplCopyWith<$Res> {
-  factory _$$LoadFavoritesImplCopyWith(
-    _$LoadFavoritesImpl value,
-    $Res Function(_$LoadFavoritesImpl) then,
-  ) = __$$LoadFavoritesImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$LoadFavoritesImplCopyWithImpl<$Res>
-    extends _$FavoriteEventCopyWithImpl<$Res, _$LoadFavoritesImpl>
-    implements _$$LoadFavoritesImplCopyWith<$Res> {
-  __$$LoadFavoritesImplCopyWithImpl(
-    _$LoadFavoritesImpl _value,
-    $Res Function(_$LoadFavoritesImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of FavoriteEvent
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$LoadFavoritesImpl implements _LoadFavorites {
-  const _$LoadFavoritesImpl();
-
-  @override
-  String toString() {
-    return 'FavoriteEvent.loadFavorites()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$LoadFavoritesImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() loadFavorites,
-    required TResult Function(EventEntity data) addToFavorite,
-    required TResult Function(int id) removeFromFavorite,
-    required TResult Function(int id) loadFavoriteStatus,
-  }) {
-    return loadFavorites();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? loadFavorites,
-    TResult? Function(EventEntity data)? addToFavorite,
-    TResult? Function(int id)? removeFromFavorite,
-    TResult? Function(int id)? loadFavoriteStatus,
-  }) {
-    return loadFavorites?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? loadFavorites,
-    TResult Function(EventEntity data)? addToFavorite,
-    TResult Function(int id)? removeFromFavorite,
-    TResult Function(int id)? loadFavoriteStatus,
-    required TResult orElse(),
-  }) {
-    if (loadFavorites != null) {
-      return loadFavorites();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_LoadFavorites value) loadFavorites,
-    required TResult Function(_AddToFavorite value) addToFavorite,
-    required TResult Function(_RemoveFromFavorite value) removeFromFavorite,
-    required TResult Function(_LoadFavoriteStatus value) loadFavoriteStatus,
-  }) {
-    return loadFavorites(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_LoadFavorites value)? loadFavorites,
-    TResult? Function(_AddToFavorite value)? addToFavorite,
-    TResult? Function(_RemoveFromFavorite value)? removeFromFavorite,
-    TResult? Function(_LoadFavoriteStatus value)? loadFavoriteStatus,
-  }) {
-    return loadFavorites?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_LoadFavorites value)? loadFavorites,
-    TResult Function(_AddToFavorite value)? addToFavorite,
-    TResult Function(_RemoveFromFavorite value)? removeFromFavorite,
-    TResult Function(_LoadFavoriteStatus value)? loadFavoriteStatus,
-    required TResult orElse(),
-  }) {
-    if (loadFavorites != null) {
-      return loadFavorites(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _LoadFavorites implements FavoriteEvent {
-  const factory _LoadFavorites() = _$LoadFavoritesImpl;
 }
 
 /// @nodoc
@@ -274,7 +149,6 @@ class _$AddToFavoriteImpl implements _AddToFavorite {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() loadFavorites,
     required TResult Function(EventEntity data) addToFavorite,
     required TResult Function(int id) removeFromFavorite,
     required TResult Function(int id) loadFavoriteStatus,
@@ -285,7 +159,6 @@ class _$AddToFavoriteImpl implements _AddToFavorite {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? loadFavorites,
     TResult? Function(EventEntity data)? addToFavorite,
     TResult? Function(int id)? removeFromFavorite,
     TResult? Function(int id)? loadFavoriteStatus,
@@ -296,7 +169,6 @@ class _$AddToFavoriteImpl implements _AddToFavorite {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? loadFavorites,
     TResult Function(EventEntity data)? addToFavorite,
     TResult Function(int id)? removeFromFavorite,
     TResult Function(int id)? loadFavoriteStatus,
@@ -311,7 +183,6 @@ class _$AddToFavoriteImpl implements _AddToFavorite {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_LoadFavorites value) loadFavorites,
     required TResult Function(_AddToFavorite value) addToFavorite,
     required TResult Function(_RemoveFromFavorite value) removeFromFavorite,
     required TResult Function(_LoadFavoriteStatus value) loadFavoriteStatus,
@@ -322,7 +193,6 @@ class _$AddToFavoriteImpl implements _AddToFavorite {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_LoadFavorites value)? loadFavorites,
     TResult? Function(_AddToFavorite value)? addToFavorite,
     TResult? Function(_RemoveFromFavorite value)? removeFromFavorite,
     TResult? Function(_LoadFavoriteStatus value)? loadFavoriteStatus,
@@ -333,7 +203,6 @@ class _$AddToFavoriteImpl implements _AddToFavorite {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_LoadFavorites value)? loadFavorites,
     TResult Function(_AddToFavorite value)? addToFavorite,
     TResult Function(_RemoveFromFavorite value)? removeFromFavorite,
     TResult Function(_LoadFavoriteStatus value)? loadFavoriteStatus,
@@ -431,7 +300,6 @@ class _$RemoveFromFavoriteImpl implements _RemoveFromFavorite {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() loadFavorites,
     required TResult Function(EventEntity data) addToFavorite,
     required TResult Function(int id) removeFromFavorite,
     required TResult Function(int id) loadFavoriteStatus,
@@ -442,7 +310,6 @@ class _$RemoveFromFavoriteImpl implements _RemoveFromFavorite {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? loadFavorites,
     TResult? Function(EventEntity data)? addToFavorite,
     TResult? Function(int id)? removeFromFavorite,
     TResult? Function(int id)? loadFavoriteStatus,
@@ -453,7 +320,6 @@ class _$RemoveFromFavoriteImpl implements _RemoveFromFavorite {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? loadFavorites,
     TResult Function(EventEntity data)? addToFavorite,
     TResult Function(int id)? removeFromFavorite,
     TResult Function(int id)? loadFavoriteStatus,
@@ -468,7 +334,6 @@ class _$RemoveFromFavoriteImpl implements _RemoveFromFavorite {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_LoadFavorites value) loadFavorites,
     required TResult Function(_AddToFavorite value) addToFavorite,
     required TResult Function(_RemoveFromFavorite value) removeFromFavorite,
     required TResult Function(_LoadFavoriteStatus value) loadFavoriteStatus,
@@ -479,7 +344,6 @@ class _$RemoveFromFavoriteImpl implements _RemoveFromFavorite {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_LoadFavorites value)? loadFavorites,
     TResult? Function(_AddToFavorite value)? addToFavorite,
     TResult? Function(_RemoveFromFavorite value)? removeFromFavorite,
     TResult? Function(_LoadFavoriteStatus value)? loadFavoriteStatus,
@@ -490,7 +354,6 @@ class _$RemoveFromFavoriteImpl implements _RemoveFromFavorite {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_LoadFavorites value)? loadFavorites,
     TResult Function(_AddToFavorite value)? addToFavorite,
     TResult Function(_RemoveFromFavorite value)? removeFromFavorite,
     TResult Function(_LoadFavoriteStatus value)? loadFavoriteStatus,
@@ -588,7 +451,6 @@ class _$LoadFavoriteStatusImpl implements _LoadFavoriteStatus {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() loadFavorites,
     required TResult Function(EventEntity data) addToFavorite,
     required TResult Function(int id) removeFromFavorite,
     required TResult Function(int id) loadFavoriteStatus,
@@ -599,7 +461,6 @@ class _$LoadFavoriteStatusImpl implements _LoadFavoriteStatus {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? loadFavorites,
     TResult? Function(EventEntity data)? addToFavorite,
     TResult? Function(int id)? removeFromFavorite,
     TResult? Function(int id)? loadFavoriteStatus,
@@ -610,7 +471,6 @@ class _$LoadFavoriteStatusImpl implements _LoadFavoriteStatus {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? loadFavorites,
     TResult Function(EventEntity data)? addToFavorite,
     TResult Function(int id)? removeFromFavorite,
     TResult Function(int id)? loadFavoriteStatus,
@@ -625,7 +485,6 @@ class _$LoadFavoriteStatusImpl implements _LoadFavoriteStatus {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_LoadFavorites value) loadFavorites,
     required TResult Function(_AddToFavorite value) addToFavorite,
     required TResult Function(_RemoveFromFavorite value) removeFromFavorite,
     required TResult Function(_LoadFavoriteStatus value) loadFavoriteStatus,
@@ -636,7 +495,6 @@ class _$LoadFavoriteStatusImpl implements _LoadFavoriteStatus {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_LoadFavorites value)? loadFavorites,
     TResult? Function(_AddToFavorite value)? addToFavorite,
     TResult? Function(_RemoveFromFavorite value)? removeFromFavorite,
     TResult? Function(_LoadFavoriteStatus value)? loadFavoriteStatus,
@@ -647,7 +505,6 @@ class _$LoadFavoriteStatusImpl implements _LoadFavoriteStatus {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_LoadFavorites value)? loadFavorites,
     TResult Function(_AddToFavorite value)? addToFavorite,
     TResult Function(_RemoveFromFavorite value)? removeFromFavorite,
     TResult Function(_LoadFavoriteStatus value)? loadFavoriteStatus,
@@ -679,8 +536,6 @@ mixin _$FavoriteState {
     required TResult Function() initial,
     required TResult Function(String message) successMessage,
     required TResult Function(String message) failedMessage,
-    required TResult Function(List<EventEntity> events) successLoadFavorite,
-    required TResult Function() emptyFavorites,
     required TResult Function(bool isFavorite) favoriteStatus,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -688,8 +543,6 @@ mixin _$FavoriteState {
     TResult? Function()? initial,
     TResult? Function(String message)? successMessage,
     TResult? Function(String message)? failedMessage,
-    TResult? Function(List<EventEntity> events)? successLoadFavorite,
-    TResult? Function()? emptyFavorites,
     TResult? Function(bool isFavorite)? favoriteStatus,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -697,8 +550,6 @@ mixin _$FavoriteState {
     TResult Function()? initial,
     TResult Function(String message)? successMessage,
     TResult Function(String message)? failedMessage,
-    TResult Function(List<EventEntity> events)? successLoadFavorite,
-    TResult Function()? emptyFavorites,
     TResult Function(bool isFavorite)? favoriteStatus,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
@@ -707,8 +558,6 @@ mixin _$FavoriteState {
     required TResult Function(_Initial value) initial,
     required TResult Function(_SuccessMessage value) successMessage,
     required TResult Function(_FailedMessage value) failedMessage,
-    required TResult Function(_SuccessLoadFavorite value) successLoadFavorite,
-    required TResult Function(_EmptyFavorites value) emptyFavorites,
     required TResult Function(_FavoriteStatus value) favoriteStatus,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -716,8 +565,6 @@ mixin _$FavoriteState {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_SuccessMessage value)? successMessage,
     TResult? Function(_FailedMessage value)? failedMessage,
-    TResult? Function(_SuccessLoadFavorite value)? successLoadFavorite,
-    TResult? Function(_EmptyFavorites value)? emptyFavorites,
     TResult? Function(_FavoriteStatus value)? favoriteStatus,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -725,8 +572,6 @@ mixin _$FavoriteState {
     TResult Function(_Initial value)? initial,
     TResult Function(_SuccessMessage value)? successMessage,
     TResult Function(_FailedMessage value)? failedMessage,
-    TResult Function(_SuccessLoadFavorite value)? successLoadFavorite,
-    TResult Function(_EmptyFavorites value)? emptyFavorites,
     TResult Function(_FavoriteStatus value)? favoriteStatus,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
@@ -800,8 +645,6 @@ class _$InitialImpl implements _Initial {
     required TResult Function() initial,
     required TResult Function(String message) successMessage,
     required TResult Function(String message) failedMessage,
-    required TResult Function(List<EventEntity> events) successLoadFavorite,
-    required TResult Function() emptyFavorites,
     required TResult Function(bool isFavorite) favoriteStatus,
   }) {
     return initial();
@@ -813,8 +656,6 @@ class _$InitialImpl implements _Initial {
     TResult? Function()? initial,
     TResult? Function(String message)? successMessage,
     TResult? Function(String message)? failedMessage,
-    TResult? Function(List<EventEntity> events)? successLoadFavorite,
-    TResult? Function()? emptyFavorites,
     TResult? Function(bool isFavorite)? favoriteStatus,
   }) {
     return initial?.call();
@@ -826,8 +667,6 @@ class _$InitialImpl implements _Initial {
     TResult Function()? initial,
     TResult Function(String message)? successMessage,
     TResult Function(String message)? failedMessage,
-    TResult Function(List<EventEntity> events)? successLoadFavorite,
-    TResult Function()? emptyFavorites,
     TResult Function(bool isFavorite)? favoriteStatus,
     required TResult orElse(),
   }) {
@@ -843,8 +682,6 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(_SuccessMessage value) successMessage,
     required TResult Function(_FailedMessage value) failedMessage,
-    required TResult Function(_SuccessLoadFavorite value) successLoadFavorite,
-    required TResult Function(_EmptyFavorites value) emptyFavorites,
     required TResult Function(_FavoriteStatus value) favoriteStatus,
   }) {
     return initial(this);
@@ -856,8 +693,6 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_SuccessMessage value)? successMessage,
     TResult? Function(_FailedMessage value)? failedMessage,
-    TResult? Function(_SuccessLoadFavorite value)? successLoadFavorite,
-    TResult? Function(_EmptyFavorites value)? emptyFavorites,
     TResult? Function(_FavoriteStatus value)? favoriteStatus,
   }) {
     return initial?.call(this);
@@ -869,8 +704,6 @@ class _$InitialImpl implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(_SuccessMessage value)? successMessage,
     TResult Function(_FailedMessage value)? failedMessage,
-    TResult Function(_SuccessLoadFavorite value)? successLoadFavorite,
-    TResult Function(_EmptyFavorites value)? emptyFavorites,
     TResult Function(_FavoriteStatus value)? favoriteStatus,
     required TResult orElse(),
   }) {
@@ -961,8 +794,6 @@ class _$SuccessMessageImpl implements _SuccessMessage {
     required TResult Function() initial,
     required TResult Function(String message) successMessage,
     required TResult Function(String message) failedMessage,
-    required TResult Function(List<EventEntity> events) successLoadFavorite,
-    required TResult Function() emptyFavorites,
     required TResult Function(bool isFavorite) favoriteStatus,
   }) {
     return successMessage(message);
@@ -974,8 +805,6 @@ class _$SuccessMessageImpl implements _SuccessMessage {
     TResult? Function()? initial,
     TResult? Function(String message)? successMessage,
     TResult? Function(String message)? failedMessage,
-    TResult? Function(List<EventEntity> events)? successLoadFavorite,
-    TResult? Function()? emptyFavorites,
     TResult? Function(bool isFavorite)? favoriteStatus,
   }) {
     return successMessage?.call(message);
@@ -987,8 +816,6 @@ class _$SuccessMessageImpl implements _SuccessMessage {
     TResult Function()? initial,
     TResult Function(String message)? successMessage,
     TResult Function(String message)? failedMessage,
-    TResult Function(List<EventEntity> events)? successLoadFavorite,
-    TResult Function()? emptyFavorites,
     TResult Function(bool isFavorite)? favoriteStatus,
     required TResult orElse(),
   }) {
@@ -1004,8 +831,6 @@ class _$SuccessMessageImpl implements _SuccessMessage {
     required TResult Function(_Initial value) initial,
     required TResult Function(_SuccessMessage value) successMessage,
     required TResult Function(_FailedMessage value) failedMessage,
-    required TResult Function(_SuccessLoadFavorite value) successLoadFavorite,
-    required TResult Function(_EmptyFavorites value) emptyFavorites,
     required TResult Function(_FavoriteStatus value) favoriteStatus,
   }) {
     return successMessage(this);
@@ -1017,8 +842,6 @@ class _$SuccessMessageImpl implements _SuccessMessage {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_SuccessMessage value)? successMessage,
     TResult? Function(_FailedMessage value)? failedMessage,
-    TResult? Function(_SuccessLoadFavorite value)? successLoadFavorite,
-    TResult? Function(_EmptyFavorites value)? emptyFavorites,
     TResult? Function(_FavoriteStatus value)? favoriteStatus,
   }) {
     return successMessage?.call(this);
@@ -1030,8 +853,6 @@ class _$SuccessMessageImpl implements _SuccessMessage {
     TResult Function(_Initial value)? initial,
     TResult Function(_SuccessMessage value)? successMessage,
     TResult Function(_FailedMessage value)? failedMessage,
-    TResult Function(_SuccessLoadFavorite value)? successLoadFavorite,
-    TResult Function(_EmptyFavorites value)? emptyFavorites,
     TResult Function(_FavoriteStatus value)? favoriteStatus,
     required TResult orElse(),
   }) {
@@ -1127,8 +948,6 @@ class _$FailedMessageImpl implements _FailedMessage {
     required TResult Function() initial,
     required TResult Function(String message) successMessage,
     required TResult Function(String message) failedMessage,
-    required TResult Function(List<EventEntity> events) successLoadFavorite,
-    required TResult Function() emptyFavorites,
     required TResult Function(bool isFavorite) favoriteStatus,
   }) {
     return failedMessage(message);
@@ -1140,8 +959,6 @@ class _$FailedMessageImpl implements _FailedMessage {
     TResult? Function()? initial,
     TResult? Function(String message)? successMessage,
     TResult? Function(String message)? failedMessage,
-    TResult? Function(List<EventEntity> events)? successLoadFavorite,
-    TResult? Function()? emptyFavorites,
     TResult? Function(bool isFavorite)? favoriteStatus,
   }) {
     return failedMessage?.call(message);
@@ -1153,8 +970,6 @@ class _$FailedMessageImpl implements _FailedMessage {
     TResult Function()? initial,
     TResult Function(String message)? successMessage,
     TResult Function(String message)? failedMessage,
-    TResult Function(List<EventEntity> events)? successLoadFavorite,
-    TResult Function()? emptyFavorites,
     TResult Function(bool isFavorite)? favoriteStatus,
     required TResult orElse(),
   }) {
@@ -1170,8 +985,6 @@ class _$FailedMessageImpl implements _FailedMessage {
     required TResult Function(_Initial value) initial,
     required TResult Function(_SuccessMessage value) successMessage,
     required TResult Function(_FailedMessage value) failedMessage,
-    required TResult Function(_SuccessLoadFavorite value) successLoadFavorite,
-    required TResult Function(_EmptyFavorites value) emptyFavorites,
     required TResult Function(_FavoriteStatus value) favoriteStatus,
   }) {
     return failedMessage(this);
@@ -1183,8 +996,6 @@ class _$FailedMessageImpl implements _FailedMessage {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_SuccessMessage value)? successMessage,
     TResult? Function(_FailedMessage value)? failedMessage,
-    TResult? Function(_SuccessLoadFavorite value)? successLoadFavorite,
-    TResult? Function(_EmptyFavorites value)? emptyFavorites,
     TResult? Function(_FavoriteStatus value)? favoriteStatus,
   }) {
     return failedMessage?.call(this);
@@ -1196,8 +1007,6 @@ class _$FailedMessageImpl implements _FailedMessage {
     TResult Function(_Initial value)? initial,
     TResult Function(_SuccessMessage value)? successMessage,
     TResult Function(_FailedMessage value)? failedMessage,
-    TResult Function(_SuccessLoadFavorite value)? successLoadFavorite,
-    TResult Function(_EmptyFavorites value)? emptyFavorites,
     TResult Function(_FavoriteStatus value)? favoriteStatus,
     required TResult orElse(),
   }) {
@@ -1218,314 +1027,6 @@ abstract class _FailedMessage implements FavoriteState {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FailedMessageImplCopyWith<_$FailedMessageImpl> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$SuccessLoadFavoriteImplCopyWith<$Res> {
-  factory _$$SuccessLoadFavoriteImplCopyWith(
-    _$SuccessLoadFavoriteImpl value,
-    $Res Function(_$SuccessLoadFavoriteImpl) then,
-  ) = __$$SuccessLoadFavoriteImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({List<EventEntity> events});
-}
-
-/// @nodoc
-class __$$SuccessLoadFavoriteImplCopyWithImpl<$Res>
-    extends _$FavoriteStateCopyWithImpl<$Res, _$SuccessLoadFavoriteImpl>
-    implements _$$SuccessLoadFavoriteImplCopyWith<$Res> {
-  __$$SuccessLoadFavoriteImplCopyWithImpl(
-    _$SuccessLoadFavoriteImpl _value,
-    $Res Function(_$SuccessLoadFavoriteImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of FavoriteState
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? events = null}) {
-    return _then(
-      _$SuccessLoadFavoriteImpl(
-        null == events
-            ? _value._events
-            : events // ignore: cast_nullable_to_non_nullable
-                as List<EventEntity>,
-      ),
-    );
-  }
-}
-
-/// @nodoc
-
-class _$SuccessLoadFavoriteImpl implements _SuccessLoadFavorite {
-  const _$SuccessLoadFavoriteImpl(final List<EventEntity> events)
-    : _events = events;
-
-  final List<EventEntity> _events;
-  @override
-  List<EventEntity> get events {
-    if (_events is EqualUnmodifiableListView) return _events;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_events);
-  }
-
-  @override
-  String toString() {
-    return 'FavoriteState.successLoadFavorite(events: $events)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SuccessLoadFavoriteImpl &&
-            const DeepCollectionEquality().equals(other._events, _events));
-  }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_events));
-
-  /// Create a copy of FavoriteState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SuccessLoadFavoriteImplCopyWith<_$SuccessLoadFavoriteImpl> get copyWith =>
-      __$$SuccessLoadFavoriteImplCopyWithImpl<_$SuccessLoadFavoriteImpl>(
-        this,
-        _$identity,
-      );
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function(String message) successMessage,
-    required TResult Function(String message) failedMessage,
-    required TResult Function(List<EventEntity> events) successLoadFavorite,
-    required TResult Function() emptyFavorites,
-    required TResult Function(bool isFavorite) favoriteStatus,
-  }) {
-    return successLoadFavorite(events);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function(String message)? successMessage,
-    TResult? Function(String message)? failedMessage,
-    TResult? Function(List<EventEntity> events)? successLoadFavorite,
-    TResult? Function()? emptyFavorites,
-    TResult? Function(bool isFavorite)? favoriteStatus,
-  }) {
-    return successLoadFavorite?.call(events);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(String message)? successMessage,
-    TResult Function(String message)? failedMessage,
-    TResult Function(List<EventEntity> events)? successLoadFavorite,
-    TResult Function()? emptyFavorites,
-    TResult Function(bool isFavorite)? favoriteStatus,
-    required TResult orElse(),
-  }) {
-    if (successLoadFavorite != null) {
-      return successLoadFavorite(events);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_SuccessMessage value) successMessage,
-    required TResult Function(_FailedMessage value) failedMessage,
-    required TResult Function(_SuccessLoadFavorite value) successLoadFavorite,
-    required TResult Function(_EmptyFavorites value) emptyFavorites,
-    required TResult Function(_FavoriteStatus value) favoriteStatus,
-  }) {
-    return successLoadFavorite(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_SuccessMessage value)? successMessage,
-    TResult? Function(_FailedMessage value)? failedMessage,
-    TResult? Function(_SuccessLoadFavorite value)? successLoadFavorite,
-    TResult? Function(_EmptyFavorites value)? emptyFavorites,
-    TResult? Function(_FavoriteStatus value)? favoriteStatus,
-  }) {
-    return successLoadFavorite?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_SuccessMessage value)? successMessage,
-    TResult Function(_FailedMessage value)? failedMessage,
-    TResult Function(_SuccessLoadFavorite value)? successLoadFavorite,
-    TResult Function(_EmptyFavorites value)? emptyFavorites,
-    TResult Function(_FavoriteStatus value)? favoriteStatus,
-    required TResult orElse(),
-  }) {
-    if (successLoadFavorite != null) {
-      return successLoadFavorite(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _SuccessLoadFavorite implements FavoriteState {
-  const factory _SuccessLoadFavorite(final List<EventEntity> events) =
-      _$SuccessLoadFavoriteImpl;
-
-  List<EventEntity> get events;
-
-  /// Create a copy of FavoriteState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SuccessLoadFavoriteImplCopyWith<_$SuccessLoadFavoriteImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$EmptyFavoritesImplCopyWith<$Res> {
-  factory _$$EmptyFavoritesImplCopyWith(
-    _$EmptyFavoritesImpl value,
-    $Res Function(_$EmptyFavoritesImpl) then,
-  ) = __$$EmptyFavoritesImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$EmptyFavoritesImplCopyWithImpl<$Res>
-    extends _$FavoriteStateCopyWithImpl<$Res, _$EmptyFavoritesImpl>
-    implements _$$EmptyFavoritesImplCopyWith<$Res> {
-  __$$EmptyFavoritesImplCopyWithImpl(
-    _$EmptyFavoritesImpl _value,
-    $Res Function(_$EmptyFavoritesImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of FavoriteState
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$EmptyFavoritesImpl implements _EmptyFavorites {
-  const _$EmptyFavoritesImpl();
-
-  @override
-  String toString() {
-    return 'FavoriteState.emptyFavorites()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$EmptyFavoritesImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function(String message) successMessage,
-    required TResult Function(String message) failedMessage,
-    required TResult Function(List<EventEntity> events) successLoadFavorite,
-    required TResult Function() emptyFavorites,
-    required TResult Function(bool isFavorite) favoriteStatus,
-  }) {
-    return emptyFavorites();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function(String message)? successMessage,
-    TResult? Function(String message)? failedMessage,
-    TResult? Function(List<EventEntity> events)? successLoadFavorite,
-    TResult? Function()? emptyFavorites,
-    TResult? Function(bool isFavorite)? favoriteStatus,
-  }) {
-    return emptyFavorites?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(String message)? successMessage,
-    TResult Function(String message)? failedMessage,
-    TResult Function(List<EventEntity> events)? successLoadFavorite,
-    TResult Function()? emptyFavorites,
-    TResult Function(bool isFavorite)? favoriteStatus,
-    required TResult orElse(),
-  }) {
-    if (emptyFavorites != null) {
-      return emptyFavorites();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_SuccessMessage value) successMessage,
-    required TResult Function(_FailedMessage value) failedMessage,
-    required TResult Function(_SuccessLoadFavorite value) successLoadFavorite,
-    required TResult Function(_EmptyFavorites value) emptyFavorites,
-    required TResult Function(_FavoriteStatus value) favoriteStatus,
-  }) {
-    return emptyFavorites(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_SuccessMessage value)? successMessage,
-    TResult? Function(_FailedMessage value)? failedMessage,
-    TResult? Function(_SuccessLoadFavorite value)? successLoadFavorite,
-    TResult? Function(_EmptyFavorites value)? emptyFavorites,
-    TResult? Function(_FavoriteStatus value)? favoriteStatus,
-  }) {
-    return emptyFavorites?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_SuccessMessage value)? successMessage,
-    TResult Function(_FailedMessage value)? failedMessage,
-    TResult Function(_SuccessLoadFavorite value)? successLoadFavorite,
-    TResult Function(_EmptyFavorites value)? emptyFavorites,
-    TResult Function(_FavoriteStatus value)? favoriteStatus,
-    required TResult orElse(),
-  }) {
-    if (emptyFavorites != null) {
-      return emptyFavorites(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _EmptyFavorites implements FavoriteState {
-  const factory _EmptyFavorites() = _$EmptyFavoritesImpl;
 }
 
 /// @nodoc
@@ -1605,8 +1106,6 @@ class _$FavoriteStatusImpl implements _FavoriteStatus {
     required TResult Function() initial,
     required TResult Function(String message) successMessage,
     required TResult Function(String message) failedMessage,
-    required TResult Function(List<EventEntity> events) successLoadFavorite,
-    required TResult Function() emptyFavorites,
     required TResult Function(bool isFavorite) favoriteStatus,
   }) {
     return favoriteStatus(isFavorite);
@@ -1618,8 +1117,6 @@ class _$FavoriteStatusImpl implements _FavoriteStatus {
     TResult? Function()? initial,
     TResult? Function(String message)? successMessage,
     TResult? Function(String message)? failedMessage,
-    TResult? Function(List<EventEntity> events)? successLoadFavorite,
-    TResult? Function()? emptyFavorites,
     TResult? Function(bool isFavorite)? favoriteStatus,
   }) {
     return favoriteStatus?.call(isFavorite);
@@ -1631,8 +1128,6 @@ class _$FavoriteStatusImpl implements _FavoriteStatus {
     TResult Function()? initial,
     TResult Function(String message)? successMessage,
     TResult Function(String message)? failedMessage,
-    TResult Function(List<EventEntity> events)? successLoadFavorite,
-    TResult Function()? emptyFavorites,
     TResult Function(bool isFavorite)? favoriteStatus,
     required TResult orElse(),
   }) {
@@ -1648,8 +1143,6 @@ class _$FavoriteStatusImpl implements _FavoriteStatus {
     required TResult Function(_Initial value) initial,
     required TResult Function(_SuccessMessage value) successMessage,
     required TResult Function(_FailedMessage value) failedMessage,
-    required TResult Function(_SuccessLoadFavorite value) successLoadFavorite,
-    required TResult Function(_EmptyFavorites value) emptyFavorites,
     required TResult Function(_FavoriteStatus value) favoriteStatus,
   }) {
     return favoriteStatus(this);
@@ -1661,8 +1154,6 @@ class _$FavoriteStatusImpl implements _FavoriteStatus {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_SuccessMessage value)? successMessage,
     TResult? Function(_FailedMessage value)? failedMessage,
-    TResult? Function(_SuccessLoadFavorite value)? successLoadFavorite,
-    TResult? Function(_EmptyFavorites value)? emptyFavorites,
     TResult? Function(_FavoriteStatus value)? favoriteStatus,
   }) {
     return favoriteStatus?.call(this);
@@ -1674,8 +1165,6 @@ class _$FavoriteStatusImpl implements _FavoriteStatus {
     TResult Function(_Initial value)? initial,
     TResult Function(_SuccessMessage value)? successMessage,
     TResult Function(_FailedMessage value)? failedMessage,
-    TResult Function(_SuccessLoadFavorite value)? successLoadFavorite,
-    TResult Function(_EmptyFavorites value)? emptyFavorites,
     TResult Function(_FavoriteStatus value)? favoriteStatus,
     required TResult orElse(),
   }) {
