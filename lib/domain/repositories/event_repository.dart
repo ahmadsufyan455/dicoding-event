@@ -10,4 +10,9 @@ abstract interface class EventRepository {
   });
 
   Future<Either<Failure, EventEntity>> getDetailEvent(int id);
+
+  Future<Either<Failure, String>> insertEventFavorite(EventEntity event);
+  Future<Either<Failure, String>> removeEventFavorite(int id);
+  Future<bool> isAddedToFavorite(int id);
+  Future<Either<Failure, List<EventEntity>>> getEventFavorites();
 }

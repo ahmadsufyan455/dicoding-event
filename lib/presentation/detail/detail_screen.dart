@@ -6,6 +6,7 @@ import 'package:dicoding_event/core/helper/format_date.dart';
 import 'package:dicoding_event/core/helper/get_event_status.dart';
 import 'package:dicoding_event/domain/entities/event_entity.dart';
 import 'package:dicoding_event/presentation/detail/bloc/detail_bloc.dart';
+import 'package:dicoding_event/presentation/favorite/bloc/favorite_bloc.dart';
 import 'package:dicoding_event/presentation/widgets/error_message.dart';
 import 'package:dicoding_event/presentation/widgets/shimmer/detail_event_shimmer.dart';
 import 'package:dicoding_event/presentation/widgets/spaces.dart';
@@ -25,8 +26,11 @@ class DetailScreen extends StatefulWidget {
 class _DetailScreenState extends State<DetailScreen> {
   @override
   void initState() {
-    super.initState();
+    context.read<FavoriteBloc>().add(
+      FavoriteEvent.loadFavoriteStatus(int.parse(widget.id)),
+    );
     context.read<DetailBloc>().add(DetailEvent.started(int.parse(widget.id)));
+    super.initState();
   }
 
   Future<void> _onRefresh() async {
@@ -35,6 +39,12 @@ class _DetailScreenState extends State<DetailScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final isAddedToFavorite = context.select<FavoriteBloc, bool>(
+      (bloc) => bloc.state.maybeWhen(
+        favoriteStatus: (isFavorite) => isFavorite,
+        orElse: () => false,
+      ),
+    );
     return Scaffold(
       body: SafeArea(
         child: RefreshIndicator(
@@ -50,7 +60,8 @@ class _DetailScreenState extends State<DetailScreen> {
                         height: context.deviceHeight,
                         child: const DetailEventShimmer(),
                       ),
-                  success: (event) => _buildSuccessContent(event),
+                  success:
+                      (event) => _buildSuccessContent(event, isAddedToFavorite),
                   error:
                       (message) => SizedBox(
                         height: context.deviceHeight,
@@ -65,7 +76,7 @@ class _DetailScreenState extends State<DetailScreen> {
     );
   }
 
-  Widget _buildSuccessContent(EventEntity event) {
+  Widget _buildSuccessContent(EventEntity event, bool isFavorite) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -76,8 +87,7 @@ class _DetailScreenState extends State<DetailScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _buildCategory(event.category),
-              const SpaceHeight(10),
+              _buildCategory(event, isFavorite),
               _buildEventTitle(event.name),
               const SpaceHeight(10),
               _buildOrganizer(event.ownerName),
@@ -141,14 +151,49 @@ class _DetailScreenState extends State<DetailScreen> {
     );
   }
 
-  Widget _buildCategory(String category) {
-    return Container(
-      padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 8),
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey.shade400),
-        borderRadius: BorderRadius.circular(8),
-      ),
-      child: Text(category),
+  Widget _buildCategory(EventEntity event, bool isFavorite) {
+    return Row(
+      children: [
+        Container(
+          padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 8),
+          decoration: BoxDecoration(
+            border: Border.all(color: Colors.grey.shade400),
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: Text(event.category),
+        ),
+        const SpaceWidth(8),
+        BlocConsumer<FavoriteBloc, FavoriteState>(
+          listener: (context, state) {
+            state.maybeWhen(
+              successMessage: (message) {
+                context.read<FavoriteBloc>().add(
+                  FavoriteEvent.loadFavoriteStatus(int.parse(widget.id)),
+                );
+                context.showSnackBar(message);
+              },
+              failedMessage: (message) => context.showSnackBar(message),
+              orElse: () {},
+            );
+          },
+          builder: (context, state) {
+            return IconButton(
+              onPressed: () {
+                if (!isFavorite) {
+                  context.read<FavoriteBloc>().add(
+                    FavoriteEvent.addToFavorite(event),
+                  );
+                } else {
+                  context.read<FavoriteBloc>().add(
+                    FavoriteEvent.removeFromFavorite(event.id),
+                  );
+                }
+              },
+              icon: Icon(isFavorite ? Icons.favorite : Icons.favorite_outline),
+            );
+          },
+        ),
+      ],
     );
   }
 
@@ -227,7 +272,6 @@ class _DetailScreenState extends State<DetailScreen> {
     if (await canLaunchUrl(uri)) {
       await launchUrl(uri, mode: LaunchMode.externalApplication);
     } else {
-      print('not launch');
       throw 'Could no launch $url';
     }
   }
