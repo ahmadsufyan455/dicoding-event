@@ -23,7 +23,6 @@ mixin _$FavoriteEvent {
     required TResult Function(EventEntity data) addToFavorite,
     required TResult Function(int id) removeFromFavorite,
     required TResult Function(int id) loadFavoriteStatus,
-    required TResult Function() reset,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
@@ -31,7 +30,6 @@ mixin _$FavoriteEvent {
     TResult? Function(EventEntity data)? addToFavorite,
     TResult? Function(int id)? removeFromFavorite,
     TResult? Function(int id)? loadFavoriteStatus,
-    TResult? Function()? reset,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
@@ -39,7 +37,6 @@ mixin _$FavoriteEvent {
     TResult Function(EventEntity data)? addToFavorite,
     TResult Function(int id)? removeFromFavorite,
     TResult Function(int id)? loadFavoriteStatus,
-    TResult Function()? reset,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -48,7 +45,6 @@ mixin _$FavoriteEvent {
     required TResult Function(_AddToFavorite value) addToFavorite,
     required TResult Function(_RemoveFromFavorite value) removeFromFavorite,
     required TResult Function(_LoadFavoriteStatus value) loadFavoriteStatus,
-    required TResult Function(_Reset value) reset,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
@@ -56,7 +52,6 @@ mixin _$FavoriteEvent {
     TResult? Function(_AddToFavorite value)? addToFavorite,
     TResult? Function(_RemoveFromFavorite value)? removeFromFavorite,
     TResult? Function(_LoadFavoriteStatus value)? loadFavoriteStatus,
-    TResult? Function(_Reset value)? reset,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
@@ -64,7 +59,6 @@ mixin _$FavoriteEvent {
     TResult Function(_AddToFavorite value)? addToFavorite,
     TResult Function(_RemoveFromFavorite value)? removeFromFavorite,
     TResult Function(_LoadFavoriteStatus value)? loadFavoriteStatus,
-    TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
 }
@@ -138,7 +132,6 @@ class _$LoadFavoritesImpl implements _LoadFavorites {
     required TResult Function(EventEntity data) addToFavorite,
     required TResult Function(int id) removeFromFavorite,
     required TResult Function(int id) loadFavoriteStatus,
-    required TResult Function() reset,
   }) {
     return loadFavorites();
   }
@@ -150,7 +143,6 @@ class _$LoadFavoritesImpl implements _LoadFavorites {
     TResult? Function(EventEntity data)? addToFavorite,
     TResult? Function(int id)? removeFromFavorite,
     TResult? Function(int id)? loadFavoriteStatus,
-    TResult? Function()? reset,
   }) {
     return loadFavorites?.call();
   }
@@ -162,7 +154,6 @@ class _$LoadFavoritesImpl implements _LoadFavorites {
     TResult Function(EventEntity data)? addToFavorite,
     TResult Function(int id)? removeFromFavorite,
     TResult Function(int id)? loadFavoriteStatus,
-    TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (loadFavorites != null) {
@@ -178,7 +169,6 @@ class _$LoadFavoritesImpl implements _LoadFavorites {
     required TResult Function(_AddToFavorite value) addToFavorite,
     required TResult Function(_RemoveFromFavorite value) removeFromFavorite,
     required TResult Function(_LoadFavoriteStatus value) loadFavoriteStatus,
-    required TResult Function(_Reset value) reset,
   }) {
     return loadFavorites(this);
   }
@@ -190,7 +180,6 @@ class _$LoadFavoritesImpl implements _LoadFavorites {
     TResult? Function(_AddToFavorite value)? addToFavorite,
     TResult? Function(_RemoveFromFavorite value)? removeFromFavorite,
     TResult? Function(_LoadFavoriteStatus value)? loadFavoriteStatus,
-    TResult? Function(_Reset value)? reset,
   }) {
     return loadFavorites?.call(this);
   }
@@ -202,7 +191,6 @@ class _$LoadFavoritesImpl implements _LoadFavorites {
     TResult Function(_AddToFavorite value)? addToFavorite,
     TResult Function(_RemoveFromFavorite value)? removeFromFavorite,
     TResult Function(_LoadFavoriteStatus value)? loadFavoriteStatus,
-    TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
     if (loadFavorites != null) {
@@ -290,7 +278,6 @@ class _$AddToFavoriteImpl implements _AddToFavorite {
     required TResult Function(EventEntity data) addToFavorite,
     required TResult Function(int id) removeFromFavorite,
     required TResult Function(int id) loadFavoriteStatus,
-    required TResult Function() reset,
   }) {
     return addToFavorite(data);
   }
@@ -302,7 +289,6 @@ class _$AddToFavoriteImpl implements _AddToFavorite {
     TResult? Function(EventEntity data)? addToFavorite,
     TResult? Function(int id)? removeFromFavorite,
     TResult? Function(int id)? loadFavoriteStatus,
-    TResult? Function()? reset,
   }) {
     return addToFavorite?.call(data);
   }
@@ -314,7 +300,6 @@ class _$AddToFavoriteImpl implements _AddToFavorite {
     TResult Function(EventEntity data)? addToFavorite,
     TResult Function(int id)? removeFromFavorite,
     TResult Function(int id)? loadFavoriteStatus,
-    TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (addToFavorite != null) {
@@ -330,7 +315,6 @@ class _$AddToFavoriteImpl implements _AddToFavorite {
     required TResult Function(_AddToFavorite value) addToFavorite,
     required TResult Function(_RemoveFromFavorite value) removeFromFavorite,
     required TResult Function(_LoadFavoriteStatus value) loadFavoriteStatus,
-    required TResult Function(_Reset value) reset,
   }) {
     return addToFavorite(this);
   }
@@ -342,7 +326,6 @@ class _$AddToFavoriteImpl implements _AddToFavorite {
     TResult? Function(_AddToFavorite value)? addToFavorite,
     TResult? Function(_RemoveFromFavorite value)? removeFromFavorite,
     TResult? Function(_LoadFavoriteStatus value)? loadFavoriteStatus,
-    TResult? Function(_Reset value)? reset,
   }) {
     return addToFavorite?.call(this);
   }
@@ -354,7 +337,6 @@ class _$AddToFavoriteImpl implements _AddToFavorite {
     TResult Function(_AddToFavorite value)? addToFavorite,
     TResult Function(_RemoveFromFavorite value)? removeFromFavorite,
     TResult Function(_LoadFavoriteStatus value)? loadFavoriteStatus,
-    TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
     if (addToFavorite != null) {
@@ -453,7 +435,6 @@ class _$RemoveFromFavoriteImpl implements _RemoveFromFavorite {
     required TResult Function(EventEntity data) addToFavorite,
     required TResult Function(int id) removeFromFavorite,
     required TResult Function(int id) loadFavoriteStatus,
-    required TResult Function() reset,
   }) {
     return removeFromFavorite(id);
   }
@@ -465,7 +446,6 @@ class _$RemoveFromFavoriteImpl implements _RemoveFromFavorite {
     TResult? Function(EventEntity data)? addToFavorite,
     TResult? Function(int id)? removeFromFavorite,
     TResult? Function(int id)? loadFavoriteStatus,
-    TResult? Function()? reset,
   }) {
     return removeFromFavorite?.call(id);
   }
@@ -477,7 +457,6 @@ class _$RemoveFromFavoriteImpl implements _RemoveFromFavorite {
     TResult Function(EventEntity data)? addToFavorite,
     TResult Function(int id)? removeFromFavorite,
     TResult Function(int id)? loadFavoriteStatus,
-    TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (removeFromFavorite != null) {
@@ -493,7 +472,6 @@ class _$RemoveFromFavoriteImpl implements _RemoveFromFavorite {
     required TResult Function(_AddToFavorite value) addToFavorite,
     required TResult Function(_RemoveFromFavorite value) removeFromFavorite,
     required TResult Function(_LoadFavoriteStatus value) loadFavoriteStatus,
-    required TResult Function(_Reset value) reset,
   }) {
     return removeFromFavorite(this);
   }
@@ -505,7 +483,6 @@ class _$RemoveFromFavoriteImpl implements _RemoveFromFavorite {
     TResult? Function(_AddToFavorite value)? addToFavorite,
     TResult? Function(_RemoveFromFavorite value)? removeFromFavorite,
     TResult? Function(_LoadFavoriteStatus value)? loadFavoriteStatus,
-    TResult? Function(_Reset value)? reset,
   }) {
     return removeFromFavorite?.call(this);
   }
@@ -517,7 +494,6 @@ class _$RemoveFromFavoriteImpl implements _RemoveFromFavorite {
     TResult Function(_AddToFavorite value)? addToFavorite,
     TResult Function(_RemoveFromFavorite value)? removeFromFavorite,
     TResult Function(_LoadFavoriteStatus value)? loadFavoriteStatus,
-    TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
     if (removeFromFavorite != null) {
@@ -616,7 +592,6 @@ class _$LoadFavoriteStatusImpl implements _LoadFavoriteStatus {
     required TResult Function(EventEntity data) addToFavorite,
     required TResult Function(int id) removeFromFavorite,
     required TResult Function(int id) loadFavoriteStatus,
-    required TResult Function() reset,
   }) {
     return loadFavoriteStatus(id);
   }
@@ -628,7 +603,6 @@ class _$LoadFavoriteStatusImpl implements _LoadFavoriteStatus {
     TResult? Function(EventEntity data)? addToFavorite,
     TResult? Function(int id)? removeFromFavorite,
     TResult? Function(int id)? loadFavoriteStatus,
-    TResult? Function()? reset,
   }) {
     return loadFavoriteStatus?.call(id);
   }
@@ -640,7 +614,6 @@ class _$LoadFavoriteStatusImpl implements _LoadFavoriteStatus {
     TResult Function(EventEntity data)? addToFavorite,
     TResult Function(int id)? removeFromFavorite,
     TResult Function(int id)? loadFavoriteStatus,
-    TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (loadFavoriteStatus != null) {
@@ -656,7 +629,6 @@ class _$LoadFavoriteStatusImpl implements _LoadFavoriteStatus {
     required TResult Function(_AddToFavorite value) addToFavorite,
     required TResult Function(_RemoveFromFavorite value) removeFromFavorite,
     required TResult Function(_LoadFavoriteStatus value) loadFavoriteStatus,
-    required TResult Function(_Reset value) reset,
   }) {
     return loadFavoriteStatus(this);
   }
@@ -668,7 +640,6 @@ class _$LoadFavoriteStatusImpl implements _LoadFavoriteStatus {
     TResult? Function(_AddToFavorite value)? addToFavorite,
     TResult? Function(_RemoveFromFavorite value)? removeFromFavorite,
     TResult? Function(_LoadFavoriteStatus value)? loadFavoriteStatus,
-    TResult? Function(_Reset value)? reset,
   }) {
     return loadFavoriteStatus?.call(this);
   }
@@ -680,7 +651,6 @@ class _$LoadFavoriteStatusImpl implements _LoadFavoriteStatus {
     TResult Function(_AddToFavorite value)? addToFavorite,
     TResult Function(_RemoveFromFavorite value)? removeFromFavorite,
     TResult Function(_LoadFavoriteStatus value)? loadFavoriteStatus,
-    TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
     if (loadFavoriteStatus != null) {
@@ -700,131 +670,6 @@ abstract class _LoadFavoriteStatus implements FavoriteEvent {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$LoadFavoriteStatusImplCopyWith<_$LoadFavoriteStatusImpl> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$ResetImplCopyWith<$Res> {
-  factory _$$ResetImplCopyWith(
-    _$ResetImpl value,
-    $Res Function(_$ResetImpl) then,
-  ) = __$$ResetImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$ResetImplCopyWithImpl<$Res>
-    extends _$FavoriteEventCopyWithImpl<$Res, _$ResetImpl>
-    implements _$$ResetImplCopyWith<$Res> {
-  __$$ResetImplCopyWithImpl(
-    _$ResetImpl _value,
-    $Res Function(_$ResetImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of FavoriteEvent
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$ResetImpl implements _Reset {
-  const _$ResetImpl();
-
-  @override
-  String toString() {
-    return 'FavoriteEvent.reset()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ResetImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() loadFavorites,
-    required TResult Function(EventEntity data) addToFavorite,
-    required TResult Function(int id) removeFromFavorite,
-    required TResult Function(int id) loadFavoriteStatus,
-    required TResult Function() reset,
-  }) {
-    return reset();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? loadFavorites,
-    TResult? Function(EventEntity data)? addToFavorite,
-    TResult? Function(int id)? removeFromFavorite,
-    TResult? Function(int id)? loadFavoriteStatus,
-    TResult? Function()? reset,
-  }) {
-    return reset?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? loadFavorites,
-    TResult Function(EventEntity data)? addToFavorite,
-    TResult Function(int id)? removeFromFavorite,
-    TResult Function(int id)? loadFavoriteStatus,
-    TResult Function()? reset,
-    required TResult orElse(),
-  }) {
-    if (reset != null) {
-      return reset();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_LoadFavorites value) loadFavorites,
-    required TResult Function(_AddToFavorite value) addToFavorite,
-    required TResult Function(_RemoveFromFavorite value) removeFromFavorite,
-    required TResult Function(_LoadFavoriteStatus value) loadFavoriteStatus,
-    required TResult Function(_Reset value) reset,
-  }) {
-    return reset(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_LoadFavorites value)? loadFavorites,
-    TResult? Function(_AddToFavorite value)? addToFavorite,
-    TResult? Function(_RemoveFromFavorite value)? removeFromFavorite,
-    TResult? Function(_LoadFavoriteStatus value)? loadFavoriteStatus,
-    TResult? Function(_Reset value)? reset,
-  }) {
-    return reset?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_LoadFavorites value)? loadFavorites,
-    TResult Function(_AddToFavorite value)? addToFavorite,
-    TResult Function(_RemoveFromFavorite value)? removeFromFavorite,
-    TResult Function(_LoadFavoriteStatus value)? loadFavoriteStatus,
-    TResult Function(_Reset value)? reset,
-    required TResult orElse(),
-  }) {
-    if (reset != null) {
-      return reset(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Reset implements FavoriteEvent {
-  const factory _Reset() = _$ResetImpl;
 }
 
 /// @nodoc

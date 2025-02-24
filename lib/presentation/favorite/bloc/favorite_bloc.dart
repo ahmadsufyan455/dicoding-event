@@ -57,9 +57,5 @@ class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
       final isFavorite = await _getFavoriteStatus.invoke(event.id);
       emit(_FavoriteStatus(isFavorite));
     });
-
-    on<_Reset>((event, emit) async {
-      emit(const _Initial());
-    });
   }
 }
