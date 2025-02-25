@@ -29,12 +29,16 @@ class $AssetsIconsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/dicoding_event.png
+  AssetGenImage get dicodingEvent =>
+      const AssetGenImage('assets/images/dicoding_event.png');
+
   /// File path: assets/images/placeholder.webp
   AssetGenImage get placeholder =>
       const AssetGenImage('assets/images/placeholder.webp');
 
   /// List of all assets
-  List<AssetGenImage> get values => [placeholder];
+  List<AssetGenImage> get values => [dicodingEvent, placeholder];
 }
 
 class Assets {

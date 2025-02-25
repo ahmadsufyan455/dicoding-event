@@ -38,6 +38,13 @@ dev_dependencies:
     sdk: flutter
   json_serializable: ^6.9.4
   retrofit_generator: ^9.1.9
+  flutter_launcher_icons: ^0.14.3
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/dicoding_event.png"
+  min_sdk_android: 21
 
 flutter:
   uses-material-design: true
