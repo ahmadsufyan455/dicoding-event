@@ -3,7 +3,13 @@ import 'package:flutter/material.dart';
 class SearchInput extends StatelessWidget {
   final TextEditingController controller;
   final Function(String)? onSearch;
-  const SearchInput({super.key, required this.controller, this.onSearch});
+  final Function(String)? onChanged;
+  const SearchInput({
+    super.key,
+    required this.controller,
+    this.onSearch,
+    this.onChanged,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -11,6 +17,7 @@ class SearchInput extends StatelessWidget {
       controller: controller,
       onSubmitted: onSearch,
       textInputAction: TextInputAction.search,
+      onChanged: onChanged,
       decoration: InputDecoration(
         prefixIcon: const Icon(Icons.search),
         isDense: true,

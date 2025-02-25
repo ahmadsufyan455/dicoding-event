@@ -41,10 +41,12 @@ class _SearchScreenState extends State<SearchScreen> {
             children: [
               SearchInput(
                 controller: searchController,
-                onSearch:
-                    (query) => context.read<SearchBloc>().add(
-                      SearchEvent.started(query),
-                    ),
+                onSearch: (query) {
+                  context.read<SearchBloc>().add(SearchEvent.started(query));
+                },
+                onChanged: (query) {
+                  context.read<SearchBloc>().add(SearchEvent.started(query));
+                },
               ),
               const SpaceHeight(16),
               Expanded(
