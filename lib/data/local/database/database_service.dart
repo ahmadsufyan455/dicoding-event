@@ -1,6 +1,8 @@
 import 'package:dicoding_event/data/models/event_favorite_table.dart';
+import 'package:injectable/injectable.dart';
 import 'package:sqflite/sqflite.dart';
 
+@lazySingleton
 class DatabaseService {
   static const String _databaseName = 'event.db';
   static const String _tableName = 'event_favorite';

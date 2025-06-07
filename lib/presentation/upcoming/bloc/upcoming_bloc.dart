@@ -2,11 +2,13 @@ import 'package:dicoding_event/domain/entities/event_entity.dart';
 import 'package:dicoding_event/domain/usecases/get_upcoming_events.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 
 part 'upcoming_bloc.freezed.dart';
 part 'upcoming_event.dart';
 part 'upcoming_state.dart';
 
+@injectable
 class UpcomingBloc extends Bloc<UpcomingEvent, UpcomingState> {
   final GetUpcomingEvents _getUpcomingEvents;
   UpcomingBloc({required GetUpcomingEvents getUpcomingEvents})

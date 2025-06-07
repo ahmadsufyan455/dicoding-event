@@ -102,7 +102,7 @@ class __$$StartedImplCopyWithImpl<$Res>
         null == query
             ? _value.query
             : query // ignore: cast_nullable_to_non_nullable
-                as String,
+                  as String,
       ),
     );
   }
@@ -677,7 +677,7 @@ class __$$SuccessImplCopyWithImpl<$Res>
         null == events
             ? _value._events
             : events // ignore: cast_nullable_to_non_nullable
-                as List<EventEntity>,
+                  as List<EventEntity>,
       ),
     );
   }
@@ -968,7 +968,7 @@ class __$$ErrorImplCopyWithImpl<$Res>
         null == message
             ? _value.message
             : message // ignore: cast_nullable_to_non_nullable
-                as String,
+                  as String,
       ),
     );
   }

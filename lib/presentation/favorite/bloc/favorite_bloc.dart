@@ -4,11 +4,13 @@ import 'package:dicoding_event/domain/usecases/insert_event_favorite.dart';
 import 'package:dicoding_event/domain/usecases/remove_event_favorite.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 
 part 'favorite_bloc.freezed.dart';
 part 'favorite_event.dart';
 part 'favorite_state.dart';
 
+@injectable
 class FavoriteBloc extends Bloc<FavoriteEvent, FavoriteState> {
   final InsertEventFavorite _insertEventFavorite;
   final RemoveEventFavorite _removeEventFavorite;

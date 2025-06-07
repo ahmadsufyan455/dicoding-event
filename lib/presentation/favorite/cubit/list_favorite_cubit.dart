@@ -2,10 +2,12 @@ import 'package:dicoding_event/domain/entities/event_entity.dart';
 import 'package:dicoding_event/domain/usecases/get_event_favorites.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 
 part 'list_favorite_cubit.freezed.dart';
 part 'list_favorite_state.dart';
 
+@injectable
 class ListFavoriteCubit extends Cubit<ListFavoriteState> {
   final GetEventFavorites _getEventFavorites;
   ListFavoriteCubit({required GetEventFavorites getEventFavorites})

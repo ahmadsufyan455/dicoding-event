@@ -7,7 +7,9 @@ import 'package:dicoding_event/data/models/event_favorite_table.dart';
 import 'package:dicoding_event/domain/entities/event_entity.dart';
 import 'package:dicoding_event/domain/repositories/event_repository.dart';
 import 'package:fpdart/fpdart.dart';
+import 'package:injectable/injectable.dart';
 
+@LazySingleton(as: EventRepository)
 class EventRepositoryImpl implements EventRepository {
   final ApiService apiService;
   final DatabaseService databaseService;
