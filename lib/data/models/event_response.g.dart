@@ -10,10 +10,9 @@ EventResponse _$EventResponseFromJson(Map<String, dynamic> json) =>
     EventResponse(
       error: json['error'] as bool,
       message: json['message'] as String,
-      listEvents:
-          (json['listEvents'] as List<dynamic>)
-              .map((e) => Event.fromJson(e as Map<String, dynamic>))
-              .toList(),
+      listEvents: (json['listEvents'] as List<dynamic>)
+          .map((e) => Event.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$EventResponseToJson(EventResponse instance) =>

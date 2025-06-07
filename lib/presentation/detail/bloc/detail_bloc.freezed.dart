@@ -79,11 +79,10 @@ class _$DetailEventCopyWithImpl<$Res, $Val extends DetailEvent>
   $Res call({Object? id = null}) {
     return _then(
       _value.copyWith(
-            id:
-                null == id
-                    ? _value.id
-                    : id // ignore: cast_nullable_to_non_nullable
-                        as int,
+            id: null == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                      as int,
           )
           as $Val,
     );
@@ -121,7 +120,7 @@ class __$$StartedImplCopyWithImpl<$Res>
         null == id
             ? _value.id
             : id // ignore: cast_nullable_to_non_nullable
-                as int,
+                  as int,
       ),
     );
   }
@@ -567,7 +566,7 @@ class __$$SuccessImplCopyWithImpl<$Res>
         null == event
             ? _value.event
             : event // ignore: cast_nullable_to_non_nullable
-                as EventEntity,
+                  as EventEntity,
       ),
     );
   }
@@ -721,7 +720,7 @@ class __$$ErrorImplCopyWithImpl<$Res>
         null == error
             ? _value.error
             : error // ignore: cast_nullable_to_non_nullable
-                as String,
+                  as String,
       ),
     );
   }

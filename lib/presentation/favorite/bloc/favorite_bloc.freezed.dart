@@ -108,7 +108,7 @@ class __$$AddToFavoriteImplCopyWithImpl<$Res>
         null == data
             ? _value.data
             : data // ignore: cast_nullable_to_non_nullable
-                as EventEntity,
+                  as EventEntity,
       ),
     );
   }
@@ -256,7 +256,7 @@ class __$$RemoveFromFavoriteImplCopyWithImpl<$Res>
         null == id
             ? _value.id
             : id // ignore: cast_nullable_to_non_nullable
-                as int,
+                  as int,
       ),
     );
   }
@@ -407,7 +407,7 @@ class __$$LoadFavoriteStatusImplCopyWithImpl<$Res>
         null == id
             ? _value.id
             : id // ignore: cast_nullable_to_non_nullable
-                as int,
+                  as int,
       ),
     );
   }
@@ -747,7 +747,7 @@ class __$$SuccessMessageImplCopyWithImpl<$Res>
         null == message
             ? _value.message
             : message // ignore: cast_nullable_to_non_nullable
-                as String,
+                  as String,
       ),
     );
   }
@@ -904,7 +904,7 @@ class __$$FailedMessageImplCopyWithImpl<$Res>
         null == message
             ? _value.message
             : message // ignore: cast_nullable_to_non_nullable
-                as String,
+                  as String,
       ),
     );
   }
@@ -1058,7 +1058,7 @@ class __$$FavoriteStatusImplCopyWithImpl<$Res>
         null == isFavorite
             ? _value.isFavorite
             : isFavorite // ignore: cast_nullable_to_non_nullable
-                as bool,
+                  as bool,
       ),
     );
   }

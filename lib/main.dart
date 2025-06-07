@@ -10,21 +10,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
-import 'core/di/service_locator.dart';
+import 'core/di/di.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initializeDateFormatting('id_ID', null);
-  await initDependencies();
+  configureDependencies();
   runApp(
     MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => serviceLocator<FinishedBloc>()),
-        BlocProvider(create: (context) => serviceLocator<UpcomingBloc>()),
-        BlocProvider(create: (context) => serviceLocator<SearchBloc>()),
-        BlocProvider(create: (context) => serviceLocator<DetailBloc>()),
-        BlocProvider(create: (context) => serviceLocator<FavoriteBloc>()),
-        BlocProvider(create: (context) => serviceLocator<ListFavoriteCubit>()),
+        BlocProvider(create: (_) => getIt<FinishedBloc>()),
+        BlocProvider(create: (_) => getIt<UpcomingBloc>()),
+        BlocProvider(create: (_) => getIt<SearchBloc>()),
+        BlocProvider(create: (_) => getIt<DetailBloc>()),
+        BlocProvider(create: (_) => getIt<FavoriteBloc>()),
+        BlocProvider(create: (_) => getIt<ListFavoriteCubit>()),
       ],
       child: const DicodingEventApp(),
     ),
