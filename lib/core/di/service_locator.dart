@@ -18,6 +18,7 @@ import 'package:dicoding_event/presentation/search/bloc/search_bloc.dart';
 import 'package:dicoding_event/presentation/upcoming/bloc/upcoming_bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:network_logger/network_logger.dart';
 
 final serviceLocator = GetIt.instance;
 
@@ -56,5 +57,7 @@ Future<void> initDependencies() async {
   );
   serviceLocator.registerLazySingleton(() => ApiService(serviceLocator()));
   serviceLocator.registerLazySingleton(() => DatabaseService());
-  serviceLocator.registerLazySingleton(() => Dio());
+  serviceLocator.registerLazySingleton(
+    () => Dio()..interceptors.add(DioNetworkLogger()),
+  );
 }

@@ -2,7 +2,9 @@ import 'package:dicoding_event/presentation/favorite/favorite_screen.dart';
 import 'package:dicoding_event/presentation/finished/finished_screen.dart';
 import 'package:dicoding_event/presentation/home/home_screen.dart';
 import 'package:dicoding_event/presentation/upcoming/upcoming_screen.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:network_logger/network_logger.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -24,6 +26,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
     setState(() {
       _selectedIndex = index;
     });
+  }
+
+  @override
+  void initState() {
+    if (kDebugMode) {
+      NetworkLoggerOverlay.attachTo(context);
+    }
+    super.initState();
   }
 
   @override
