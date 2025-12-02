@@ -33,8 +33,6 @@ void main() async {
 
 class DicodingEventApp extends StatelessWidget {
   const DicodingEventApp({super.key});
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
